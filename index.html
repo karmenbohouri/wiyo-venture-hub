@@ -46,6 +46,28 @@ ul.chk li{background:var(--surface);border:1px solid var(--line);border-radius:6
 footer{background:#0D0D0D;color:#cfd3cf;padding:2rem 5vw;font-size:.88rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 footer a{color:var(--gold);text-decoration:none;margin-right:1rem}
 .wa{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));background:#25D366;color:#073b1b;font-weight:500;text-decoration:none;padding:.6rem 1rem;border-radius:30px;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:12}
+/* Official Wiyo palette: #FF0000 main red, #C81927 secondary red, #F3E5E5 pale pink, #FFFFFF white */
+:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{color-scheme:light;--ink:#1A1A1A;--bg:#FFFFFF;--surface:#FFFFFF;--pale:#F3E5E5;--mute:#555555;--line:#E9D3D3;--gold:#FF0000;--green:#C81927}
+a:focus-visible{outline:3px solid #C81927;outline-offset:2px}
+.hero{background:var(--pale);color:var(--ink);border-bottom:4px solid #FF0000}
+.hero small{color:#C81927}
+.hero h1 em{color:#C81927}
+.hero p{opacity:1;color:#333}
+.btn{background:#FF0000;color:#000;font-weight:600;transition:background .15s,color .15s}
+.btn:hover,.btn:focus-visible{background:#C81927;color:#fff}
+nav a.t:hover{color:#C81927}
+a.card{transition:border-color .15s}a.card:hover{border-color:#C81927}a.card:hover h3{color:#C81927}
+.card b{background:var(--pale);color:#C81927}
+.band{background:var(--pale);color:var(--ink);border-top:4px solid #FF0000}
+.band h3{color:#C81927}.band p{opacity:1}
+.hours{background:var(--pale)}
+footer{background:var(--pale);color:var(--ink);border-top:4px solid #FF0000}
+footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
+.flogo{color:var(--ink)}
+.wa{background:#FF0000;color:#000;font-weight:600;transition:background .15s,color .15s}.wa:hover{background:#C81927;color:#fff}
+.logo svg path:first-child,.flogo svg path:first-child{stroke:#C81927}
+.logo svg path:nth-child(2),.flogo svg path:nth-child(2){fill:#C81927}
+.logo svg circle,.flogo svg circle{stroke:#C81927}
 </style>
 </head>
 <body>
