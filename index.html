@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wiyo Venture Hub — Build. Launch. Thrive.</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0D0D0D;--bg:#F9F7F3;--surface:#fff;--gold:#C8A84B;--green:#1A6B3C;--pale:#EAF3EE;--mute:#555;--line:#E5E2DA;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#F3F1EA;--bg:#101512;--surface:#18201B;--pale:#1B2A21;--mute:#A9B3AC;--line:#2A352E;--green:#3DA668}}
+:root[data-theme="dark"]{--ink:#F3F1EA;--bg:#101512;--surface:#18201B;--pale:#1B2A21;--mute:#A9B3AC;--line:#2A352E;--green:#3DA668}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:Syne,sans-serif;line-height:1.15}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.7rem 5vw;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:11}
+.logo{font:800 1.2rem Syne,sans-serif;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo svg{width:38px;height:34px;flex:none}.logo span{letter-spacing:.01em}
+.flogo{display:flex;align-items:center;gap:10px;font:800 1.05rem Syne,sans-serif;color:#fff;margin-bottom:.5rem}.flogo svg{width:34px;height:30px}
+nav ul{list-style:none;display:flex;gap:1.2rem;flex-wrap:wrap}
+nav a.t{color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:500;padding:.2rem 0;border-bottom:2px solid transparent}
+nav a.t.on{color:var(--ink);border-color:var(--gold)}
+.page{display:none}.page.on{display:block}
+.hero{background:linear-gradient(135deg,#0f3d22,var(--green));color:#fff;padding:clamp(3rem,10vw,6rem) 5vw}
+.hero small{color:var(--gold);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);margin:.6rem 0 1rem;max-width:16ch}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{max-width:60ch;opacity:.9;margin-bottom:1.5rem}
+.btn{display:inline-block;background:var(--gold);color:#0D0D0D;font-weight:500;text-decoration:none;padding:.75rem 1.5rem;border-radius:4px}
+.sec{padding:clamp(2.5rem,6vw,4rem) 5vw;max-width:1100px;margin:0 auto}
+.sec h2{font-size:clamp(1.5rem,3.5vw,2.1rem);margin-bottom:.8rem}
+.lead{color:var(--mute);max-width:70ch;margin-bottom:1.5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.3rem}
+.card h3{font-size:1.05rem;margin-bottom:.4rem}.card p{color:var(--mute);font-size:.92rem}
+.card b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pale);color:var(--green);font:700 .95rem Syne,sans-serif;margin-bottom:.7rem}
+.weeks{display:grid;gap:.7rem}.weeks .card{display:flex;gap:1rem;align-items:flex-start}.weeks .card b{margin:0;flex:none}
+ul.chk{list-style:none;display:grid;gap:.6rem}
+ul.chk li{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.8rem 1rem;border-left:3px solid var(--gold)}
+.band{background:var(--green);color:#fff;padding:2rem 5vw;text-align:center}
+.band h3{font-size:clamp(1.2rem,3vw,1.7rem)}.band p{opacity:.9}
+.hours{background:var(--pale);border-radius:6px;padding:1.3rem;margin-top:1.5rem}
+.hours li{list-style:none}
+footer{background:#0D0D0D;color:#cfd3cf;padding:2rem 5vw;font-size:.88rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer a{color:var(--gold);text-decoration:none;margin-right:1rem}
+.wa{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));background:#25D366;color:#073b1b;font-weight:500;text-decoration:none;padding:.6rem 1rem;border-radius:30px;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:12}
+</style>
+</head>
+<body>
+<nav>
+<a class="logo" href="#home" aria-label="Wiyo Venture Hub — home"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M4 11 L12 30 L20 17 L28 30 L33 15" fill="none" stroke="#D4122B" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 4 H37 V16 Z" fill="#D4122B"/><circle cx="20" cy="11" r="3.2" fill="none" stroke="#D4122B" stroke-width="2.4"/></svg><span>Wiyo Venture Hub</span></a>
+<ul>
+<li><a class="t" href="#home">Home</a></li><li><a class="t" href="#incubation">Incubation</a></li><li><a class="t" href="#youth">Youth skills</a></li><li><a class="t" href="#coworking">Coworking</a></li><li><a class="t" href="#consulting">Consulting</a></li><li><a class="t" href="#about">About us</a></li>
+</ul>
+</nav>
+
+<main>
+<section class="page" id="home">
+<div class="hero"><small>Douala · Littoral Region, Cameroon</small><h1>Build. Launch. <em>Thrive.</em></h1><p>An accessible, trust-backed entrepreneurship pipeline for the youth of the Littoral region.</p><a class="btn" href="#incubation">Explore our programs</a></div>
+<div class="sec"><h2>Our mission</h2><p class="lead">To systematically reduce irregular youth migration in the Littoral region of Cameroon by building an accessible, trust-backed entrepreneurship pipeline. We transform underemployed local youth into resilient, investable business founders by matching them with Cameroonian diaspora mentorship, micro-capital sandboxes and modern digital toolkits.</p>
+<h2>Our key value pillars</h2>
+<div class="grid"><div class="card"><b>1</b><h3>Incubations</h3></div><div class="card"><b>2</b><h3>Job-Ready Skills</h3></div><div class="card"><b>3</b><h3>Uninterrupted Power</h3></div><div class="card"><b>4</b><h3>Business Advisory</h3></div></div></div>
+<div class="sec"><h2>Our programs</h2>
+<div class="grid">
+<a class="card" href="#incubation" style="text-decoration:none;color:inherit"><h3>Founders Academy</h3><p>Transforming Ambitious Ideas into Market-Ready Ventures</p></a>
+<a class="card" href="#coworking" style="text-decoration:none;color:inherit"><h3>Coworking Space</h3><p>Uninterrupted Productivity in the Heart of Douala (Akwa)</p></a>
+<a class="card" href="#youth" style="text-decoration:none;color:inherit"><h3>Youth Skills Training</h3><p>Practical, Job-Ready Digital &amp; Entrepreneurial Skills</p></a>
+<a class="card" href="#consulting" style="text-decoration:none;color:inherit"><h3>Business Consulting</h3><p>Strategic Advisory to Scale Your Business in Cameroon</p></a>
+</div></div>
+</section>
+
+<section class="page" id="incubation">
+<div class="hero"><small>Founders Academy</small><h1>Founder <em>Incubation</em> Program</h1><p>An intensive 6-week accelerator cohort engineered for ambitious young entrepreneurs (ages 18–35) in the Littoral Region of Cameroon.</p><a class="btn" href="#about">Register now</a></div>
+<div class="sec"><h2>Core programme pillars</h2>
+<div class="grid"><div class="card"><h3>Go-To-Market (GTM) Bootcamps</h3></div><div class="card"><h3>1-on-1 Local &amp; Diaspora Mentorship</h3></div><div class="card"><h3>Modern Hub Infrastructure</h3></div><div class="card"><h3>Investment Readiness &amp; Pitch Access</h3></div></div></div>
+<div class="sec"><h2>6-week cohort curriculum</h2>
+<div class="weeks">
+<div class="card"><b>1</b><div><h3>Foundations &amp; Value Proposition Validation</h3><p>Deconstruct your business model, define customer personas, and conduct field interviews in Douala.</p></div></div>
+<div class="card"><b>2</b><div><h3>Product &amp; Market Fit</h3><p>Refine your prototype/MVP based on early customer feedback and local market dynamics.</p></div></div>
+<div class="card"><b>3</b><div><h3>Financial Modelling &amp; Unit Economics</h3><p>Build cash flow statements, establish pricing structures, and calculate customer acquisition costs.</p></div></div>
+<div class="card"><b>4</b><div><h3>Legal Compliance &amp; Corporate Structuring</h3><p>Understand OHADA business laws, company registration (NIU/RCCM), tax compliance, and contract drafting.</p></div></div>
+<div class="card"><b>5</b><div><h3>Branding, Sales &amp; Customer Growth</h3><p>Design digital marketing campaigns, build local sales channels, and establish customer retention models.</p></div></div>
+<div class="card"><b>6</b><div><h3>Pitch Coaching &amp; Investor Demo Day</h3><p>Finalise your pitch deck, conduct mock jury presentations, and pitch live to invited diaspora and local angel investors.</p></div></div>
+</div></div>
+<div class="sec"><h2>Who should apply?</h2>
+<ul class="chk"><li>Young entrepreneurs (ages 18–35) operating or launching in the Littoral Region (Douala).</li><li>Startups with an early-stage product, prototype, or clear business concept.</li><li>Founders committed to dedicating at least 10–15 hours per week to workshops and mentorship sessions.</li><li>Solopreneurs or startup co-founding teams (2–4 members).</li></ul></div>
+</section>
+
+<section class="page" id="youth">
+<div class="hero"><small>Youth Skills Training</small><h1>Skills that get you <em>hired</em></h1><p>In today’s job market, theoretical knowledge is no longer enough. Wiyoventure Hub provides intensive, hands-on, project-based skill development programs designed specifically for youth, graduates, and aspiring freelancers in Douala and the Littoral Region.</p><a class="btn" href="#about">Register now</a></div>
+<div class="sec"><h2>Content blocks</h2>
+<div class="grid"><div class="card"><h3>Digital Marketing and E-Commerce Growth</h3></div><div class="card"><h3>Web Development &amp; No-Code App Building</h3></div><div class="card"><h3>Graphic Design, AI-Assisted Tools &amp; Video Editing</h3></div><div class="card"><h3>Practical Accounting &amp; Startup Finance</h3></div></div></div>
+<div class="sec"><h2>Class schedules &amp; formats</h2>
+<ul class="chk"><li><strong>Weekday Evening Track:</strong> 3 sessions per week (5:30 PM – 7:30 PM) for working professionals and students.</li><li><strong>Weekend Intensive Track:</strong> Saturdays (9:00 AM – 3:00 PM) for fast-track learning.</li><li><strong>Hybrid Access:</strong> In-person training at our Akwa hub with solar power backup + digital portal access for downloadable learning assets.</li></ul>
+<p class="lead" style="margin-top:1.2rem"><em>Hardware &amp; Class Requirements: Students are encouraged to bring a personal laptop. For students without laptops, desktop computers are available in our computer lab during scheduled practical sessions.</em></p></div>
+<div class="band"><h3>Standard Course Fee: 50 USD per course</h3><p>Duration: 4 Weeks (20–30 total instructional hours)</p></div>
+</section>
+
+<section class="page" id="coworking">
+<div class="hero"><small>Coworking Space · Akwa, Douala</small><h1>Power. Fiber. <em>Focus.</em></h1><p>In a commercial hub like Douala, sudden electricity blackouts and slow connectivity can destroy client trust and disrupt critical business deadlines. Wiyoventure Hub provides a modern, fully air-conditioned, professional environment built to keep remote workers, independent freelancers, and growing startup teams operating at peak performance.</p><a class="btn" href="#about">Book now</a></div>
+<div class="sec"><h2>Amenities highlights</h2>
+<div class="grid">
+<div class="card"><h3>Plan 1: Flexible Hot-Desking</h3><p>Open-plan desk seating, high-speed Wi-Fi, solar power backup, and access to the lounge area.</p></div>
+<div class="card"><h3>Plan 2: Off-Peak Evening</h3><p>Reserved evening desk access, uninterrupted solar power, and fiber internet.</p></div>
+<div class="card"><h3>Plan 3: Full Monthly Membership</h3><p>Full-day access, reserved seating option, free credits for meeting room usage, business address usage.</p></div></div>
+<ul class="chk" style="margin-top:1.5rem"><li><strong>10kVA Solar Inverter Grid:</strong> Dedicated renewable solar backup ensures 100% power uptime, even during severe municipal load-shedding.</li><li><strong>Dual Fiber-Optic Wi-Fi:</strong> High-speed internet powered by redundant service providers for smooth video conferencing, file uploads, and online streaming.</li><li><strong>Air-Conditioned Comfort:</strong> Fully climate-controlled open-plan work halls, private booths, and conference spaces.</li><li><strong>Continuous Power &amp; Refreshments:</strong> On-site coffee, lounge area, printing, scanning, and secure access.</li></ul>
+<div class="hours"><h3>Standard operating hours</h3><ul><li>Monday – Friday: 8:00 AM – 8:00 PM</li><li>Saturday: 9:00 AM – 6:00 PM</li><li>Evening Off-Peak Hours: 6:00 PM – Midnight</li></ul></div></div>
+</section>
+
+<section class="page" id="consulting">
+<div class="hero"><small>Business Consulting</small><h1>Scale your business in <em>Cameroon</em></h1><p>Strategic Advisory to Scale Your Business in Cameroon.</p></div>
+<div class="sec"><div class="card"><b>4</b><h3>Business Advisory</h3><p>One of our four key value pillars, alongside Incubations, Job-Ready Skills and Uninterrupted Power.</p></div></div>
+</section>
+
+<section class="page" id="about">
+<div class="hero"><small>About us</small><h1>Wiyo <em>Venture Hub</em></h1><p>Building an accessible, trust-backed entrepreneurship pipeline in the Littoral region of Cameroon.</p></div>
+<div class="sec"><h2>Our mission</h2><p class="lead">To systematically reduce irregular youth migration in the Littoral region of Cameroon by building an accessible, trust-backed entrepreneurship pipeline. We transform underemployed local youth into resilient, investable business founders by matching them with Cameroonian diaspora mentorship, micro-capital sandboxes and modern digital toolkits.</p></div>
+</section>
+</main>
+
+<footer><span><span class="flogo"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M4 11 L12 30 L20 17 L28 30 L33 15" fill="none" stroke="#D4122B" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 4 H37 V16 Z" fill="#D4122B"/><circle cx="20" cy="11" r="3.2" fill="none" stroke="#D4122B" stroke-width="2.4"/></svg>Wiyo Venture Hub</span>Legal | Cookie policy | © 2026 Wiyo Venture Hub</span><span><a href="#">LinkedIn</a><a href="#">TikTok</a><a href="#">Instagram</a></span></footer>
+<a class="wa" href="#">WhatsApp</a>
+
+<script>
+function show(){var h=(location.hash||"#home").slice(1);if(!document.getElementById(h))h="home";
+document.querySelectorAll(".page").forEach(function(p){p.classList.toggle("on",p.id===h)});
+document.querySelectorAll("nav a.t").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
+window.scrollTo(0,0)}
+window.addEventListener("hashchange",show);show();
+</script>
+</body>
+</html>
