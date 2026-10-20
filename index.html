@@ -68,12 +68,19 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 .logo svg path:first-child,.flogo svg path:first-child{stroke:#C81927}
 .logo svg path:nth-child(2),.flogo svg path:nth-child(2){fill:#C81927}
 .logo svg circle,.flogo svg circle{stroke:#C81927}
-/* Home hero: photo on the right (desktop), under the text (mobile) */
-.hero--home{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
-.hero--home h1{font-size:clamp(2.2rem,4.6vw,3.8rem)}
-.hero-media{margin:0;border-radius:6px;overflow:hidden;aspect-ratio:2/1;background:var(--pale)}
+/* Home hero: white editorial layout, photo in a curved asymmetrical shape */
+.hero--home{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(2rem,4vw,3.5rem);align-items:center;background:#fff;color:var(--ink);padding-block:clamp(2.5rem,6vw,4.5rem)}
+.hero--home small{display:flex;align-items:center;gap:.7rem;font-weight:500;letter-spacing:.14em}
+.hero--home small::before{content:"";width:28px;height:3px;background:#FF0000;flex:none}
+.hero--home h1{font-size:clamp(2.4rem,5vw,4rem);max-width:none;margin:.9rem 0 1.1rem}
+.hero--home p{max-width:46ch;font-size:1.06rem;line-height:1.7;margin-bottom:1.8rem}
+.hero-visual{position:relative;margin-bottom:14px}
+.hero-visual::before{content:"";position:absolute;inset:0;transform:translate(-14px,14px);background:#F3E5E5;clip-path:url(#heroShape)}
+.hero-media{position:relative;margin:0;aspect-ratio:2/1;clip-path:url(#heroShape);background:#F3E5E5}
 .hero-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(1.9)}
-@media (max-width:899px){.hero--home{grid-template-columns:1fr}.hero-media{aspect-ratio:16/9}}
+.hero-defs{position:absolute;width:0;height:0}
+#programs{scroll-margin-top:5rem}
+@media (max-width:899px){.hero--home{grid-template-columns:1fr;gap:2rem}.hero--home small{font-size:.72rem;letter-spacing:.08em}.hero--home small::before{width:20px}.hero--home p{max-width:52ch}.hero-media{aspect-ratio:16/9}.hero-visual{margin-bottom:10px}.hero-visual::before{transform:translate(-10px,10px)}#programs{scroll-margin-top:10rem}}
 </style>
 </head>
 <body>
@@ -86,11 +93,11 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 
 <main>
 <section class="page" id="home">
-<div class="hero hero--home"><div class="hero-text"><small>Douala · Littoral Region, Cameroon</small><h1>Build. Launch. <em>Thrive.</em></h1><p>We help young people turn their ideas into successful businesses through incubation, practical skills training, coworking spaces, and business consulting.</p><a class="btn" href="#incubation">Explore our programs</a></div><figure class="hero-media"><img src="images/hero-wiyo-venture-hub.png" alt="Five young people laughing and walking together outdoors, carrying books and laptops" width="1754" height="863"></figure></div>
+<div class="hero hero--home"><div class="hero-text"><small>Douala · Littoral Region, Cameroon</small><h1>Build. Launch. <em>Thrive.</em></h1><p>We help young people turn their ideas into successful businesses through incubation, practical skills training, coworking spaces, and business consulting.</p><a class="btn" id="exploreBtn" href="#home">Explore our programs</a></div><div class="hero-visual"><svg class="hero-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs><clipPath id="heroShape" clipPathUnits="objectBoundingBox"><path d="M0,0.30 C0,0.134 0.0985,0 0.22,0 L0.97,0 Q1,0 1,0.06 L1,0.74 C1,0.884 0.919,1 0.82,1 L0.03,1 Q0,1 0,0.94 Z"/></clipPath></defs></svg><figure class="hero-media"><img src="images/hero-wiyo-venture-hub.png" alt="Five young people laughing and walking together outdoors, carrying books and laptops" width="1754" height="863"></figure></div></div>
 <div class="sec"><h2>Our mission</h2><p class="lead">To systematically reduce irregular youth migration in the Littoral region of Cameroon by building an accessible, trust-backed entrepreneurship pipeline. We transform underemployed local youth into resilient, investable business founders by matching them with Cameroonian diaspora mentorship, micro-capital sandboxes and modern digital toolkits.</p>
 <h2>Our key value pillars</h2>
 <div class="grid"><div class="card"><b>1</b><h3>Incubations</h3></div><div class="card"><b>2</b><h3>Job-Ready Skills</h3></div><div class="card"><b>3</b><h3>Uninterrupted Power</h3></div><div class="card"><b>4</b><h3>Business Advisory</h3></div></div></div>
-<div class="sec"><h2>Our programs</h2>
+<div class="sec" id="programs"><h2>Our programs</h2>
 <div class="grid">
 <a class="card" href="#incubation" style="text-decoration:none;color:inherit"><h3>Founders Academy</h3><p>Transforming Ambitious Ideas into Market-Ready Ventures</p></a>
 <a class="card" href="#coworking" style="text-decoration:none;color:inherit"><h3>Coworking Space</h3><p>Uninterrupted Productivity in the Heart of Douala (Akwa)</p></a>
@@ -173,6 +180,7 @@ document.querySelectorAll(".page").forEach(function(p){p.classList.toggle("on",p
 document.querySelectorAll("nav a.t").forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+h)});
 window.scrollTo(0,0)}
 window.addEventListener("hashchange",show);show();
+document.getElementById("exploreBtn").addEventListener("click",function(e){var t=document.getElementById("programs");if(t){e.preventDefault();t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}});
 </script>
 </body>
 </html>
