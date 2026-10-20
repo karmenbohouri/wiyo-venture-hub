@@ -68,6 +68,12 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 .logo svg path:first-child,.flogo svg path:first-child{stroke:#C81927}
 .logo svg path:nth-child(2),.flogo svg path:nth-child(2){fill:#C81927}
 .logo svg circle,.flogo svg circle{stroke:#C81927}
+/* Home hero: photo on the right (desktop), under the text (mobile) */
+.hero--home{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
+.hero--home h1{font-size:clamp(2.2rem,4.6vw,3.8rem)}
+.hero-media{margin:0;border-radius:6px;overflow:hidden;aspect-ratio:2/1;background:var(--pale)}
+.hero-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+@media (max-width:899px){.hero--home{grid-template-columns:1fr}.hero-media{aspect-ratio:16/9}}
 </style>
 </head>
 <body>
@@ -80,7 +86,7 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 
 <main>
 <section class="page" id="home">
-<div class="hero"><small>Douala · Littoral Region, Cameroon</small><h1>Build. Launch. <em>Thrive.</em></h1><p>An accessible, trust-backed entrepreneurship pipeline for the youth of the Littoral region.</p><a class="btn" href="#incubation">Explore our programs</a></div>
+<div class="hero hero--home"><div class="hero-text"><small>Douala · Littoral Region, Cameroon</small><h1>Build. Launch. <em>Thrive.</em></h1><p>We help young people turn their ideas into successful businesses through incubation, practical skills training, coworking spaces, and business consulting.</p><a class="btn" href="#incubation">Explore our programs</a></div><figure class="hero-media"><img src="images/hero-wiyo-venture-hub.png" alt="Five young people laughing and walking together outdoors, carrying books and laptops" width="1754" height="863"></figure></div>
 <div class="sec"><h2>Our mission</h2><p class="lead">To systematically reduce irregular youth migration in the Littoral region of Cameroon by building an accessible, trust-backed entrepreneurship pipeline. We transform underemployed local youth into resilient, investable business founders by matching them with Cameroonian diaspora mentorship, micro-capital sandboxes and modern digital toolkits.</p>
 <h2>Our key value pillars</h2>
 <div class="grid"><div class="card"><b>1</b><h3>Incubations</h3></div><div class="card"><b>2</b><h3>Job-Ready Skills</h3></div><div class="card"><b>3</b><h3>Uninterrupted Power</h3></div><div class="card"><b>4</b><h3>Business Advisory</h3></div></div></div>
