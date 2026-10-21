@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Wiyo Venture Hub — Build. Launch. Thrive.</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#0D0D0D;--bg:#F9F7F3;--surface:#fff;--gold:#C8A84B;--green:#1A6B3C;--pale:#EAF3EE;--mute:#555;--line:#E5E2DA;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -13,7 +13,8 @@ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:en
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-h1,h2,h3{font-family:Syne,sans-serif;line-height:1.15}
+h1,h2,h3{font-family:Syne,sans-serif;line-height:1.15;text-wrap:balance}
+h3{font-size:1.125rem;line-height:1.2}
 nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.7rem 5vw;background:var(--bg);border-bottom:1px solid var(--line)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:11}
 .logo{font:800 1.2rem Syne,sans-serif;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
@@ -24,17 +25,18 @@ nav a.t{color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:500;p
 nav a.t.on{color:var(--ink);border-color:var(--gold)}
 .page{display:none}.page.on{display:block}
 .hero{background:linear-gradient(135deg,#0f3d22,var(--green));color:#fff;padding:clamp(3rem,10vw,6rem) 5vw}
-.hero small{color:var(--gold);font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
-.hero h1{font-size:clamp(2.2rem,6vw,4rem);margin:.6rem 0 1rem;max-width:16ch}
+.hero small{color:var(--gold);font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
+@media (max-width:899px){.hero small{font-size:.72rem;letter-spacing:.08em}}
+.hero h1{font-size:clamp(2.25rem,4.2vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-.01em;margin:.6rem 0 1rem;max-width:16ch}
 .hero h1 em{font-style:normal;color:var(--gold)}
-.hero p{max-width:60ch;opacity:.9;margin-bottom:1.5rem}
+.hero p{max-width:60ch;opacity:.9;margin-bottom:1.5rem;font-size:1.06rem;line-height:1.7}
 .btn{display:inline-block;background:var(--gold);color:#0D0D0D;font-weight:500;text-decoration:none;padding:.75rem 1.5rem;border-radius:4px}
 .sec{padding:clamp(2.5rem,6vw,4rem) 5vw;max-width:1100px;margin:0 auto}
-.sec h2{font-size:clamp(1.5rem,3.5vw,2.1rem);margin-bottom:.8rem}
+.sec h2{font-size:clamp(1.625rem,3.2vw,2.25rem);line-height:1.2;letter-spacing:-.01em;margin-bottom:.8rem}
 .lead{color:var(--mute);max-width:70ch;margin-bottom:1.5rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.3rem}
-.card h3{font-size:1.05rem;margin-bottom:.4rem}.card p{color:var(--mute);font-size:.92rem}
+.card h3{margin-bottom:.4rem}.card p{color:var(--mute);font-size:.95rem}
 .card b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pale);color:var(--green);font:700 .95rem Syne,sans-serif;margin-bottom:.7rem}
 .weeks{display:grid;gap:.7rem}.weeks .card{display:flex;gap:1rem;align-items:flex-start}.weeks .card b{margin:0;flex:none}
 ul.chk{list-style:none;display:grid;gap:.6rem}
@@ -84,6 +86,33 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 .hero-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(1.9)}
 #programs{scroll-margin-top:5rem}
 @media (max-width:899px){.hero--home{grid-template-columns:1fr;gap:1.75rem}.hero--home small{font-size:.72rem;letter-spacing:.08em}.hero--home p{max-width:52ch}.hero-visual{margin-bottom:10px}.hero-visual::before{transform:translate(-10px,10px)}#programs{scroll-margin-top:10rem}}
+
+/* Registration dialog */
+.reg{margin:auto;border:0;border-radius:8px;padding:0;width:min(520px,calc(100% - 2rem));max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);overflow:auto;background:#fff;color:#0D0D0D;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.reg::backdrop{background:rgba(13,13,13,.6)}
+html:has(dialog.reg[open]){overflow:hidden}
+.reg-in{padding:1.5rem}
+.reg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.5rem}
+.reg h2{font-size:1.5rem;line-height:1.2;letter-spacing:-.01em;margin:0}
+.reg-x{background:none;border:0;border-radius:4px;color:#0D0D0D;cursor:pointer;font-size:1.75rem;line-height:1;padding:.2rem .55rem}
+.reg-x:hover{background:#F3E5E5}
+.reg-x:focus-visible,.reg .btn:focus-visible{outline:2px solid #C81927;outline-offset:2px}
+.reg-intro{color:#555;font-size:.95rem;margin:0 0 .5rem}
+.reg label{display:block;font-size:.9rem;font-weight:500;margin:.9rem 0 .3rem}
+.reg label span{color:#C81927}
+.reg input,.reg select,.reg textarea{width:100%;font-family:inherit;font-size:1rem;line-height:1.4;padding:.65rem .75rem;border:1px solid #d9c4c4;border-radius:4px;background:#fff;color:#0D0D0D}
+.reg input:focus,.reg select:focus,.reg textarea:focus{outline:2px solid #C81927;outline-offset:1px;border-color:#C81927}
+.reg input:user-invalid,.reg select:user-invalid{border-color:#C81927}
+.reg textarea{min-height:5rem;resize:vertical}
+.reg-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+.reg-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+.reg .btn{border:0;cursor:pointer;font-family:inherit;font-size:1rem;font-weight:600;line-height:1.2;text-align:center}
+.reg .btn-alt{background:#fff;color:#C81927;box-shadow:inset 0 0 0 2px #C81927}
+.reg .btn-alt:hover,.reg .btn-alt:focus-visible{background:#C81927;color:#fff}
+.reg-done p{margin:.4rem 0 0}
+@media (max-width:480px){.reg-in{padding:1.25rem}.reg-actions .btn{flex:1 1 100%}.reg-row--stack{grid-template-columns:1fr}}
+footer a:not([href]){cursor:default}
+footer a:not([href]):hover{text-decoration:none}
 </style>
 </head>
 <body>
@@ -110,7 +139,7 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 </section>
 
 <section class="page" id="incubation">
-<div class="hero"><small>Founders Academy</small><h1>Founder <em>Incubation</em> Program</h1><p>An intensive 6-week accelerator cohort engineered for ambitious young entrepreneurs (ages 18–35) in the Littoral Region of Cameroon.</p><a class="btn" href="#about">Register now</a></div>
+<div class="hero"><small>Founders Academy</small><h1>Founder <em>Incubation</em> Program</h1><p>An intensive 6-week accelerator cohort engineered for ambitious young entrepreneurs (ages 18–35) in the Littoral Region of Cameroon.</p><a class="btn" href="#about" data-register="Founder Incubation Program" aria-haspopup="dialog">Register now</a></div>
 <div class="sec"><h2>Core programme pillars</h2>
 <div class="grid"><div class="card"><h3>Go-To-Market (GTM) Bootcamps</h3></div><div class="card"><h3>1-on-1 Local &amp; Diaspora Mentorship</h3></div><div class="card"><h3>Modern Hub Infrastructure</h3></div><div class="card"><h3>Investment Readiness &amp; Pitch Access</h3></div></div></div>
 <div class="sec"><h2>6-week cohort curriculum</h2>
@@ -127,7 +156,7 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 </section>
 
 <section class="page" id="youth">
-<div class="hero"><small>Youth Skills Training</small><h1>Skills that get you <em>hired</em></h1><p>In today’s job market, theoretical knowledge is no longer enough. Wiyoventure Hub provides intensive, hands-on, project-based skill development programs designed specifically for youth, graduates, and aspiring freelancers in Douala and the Littoral Region.</p><a class="btn" href="#about">Register now</a></div>
+<div class="hero"><small>Youth Skills Training</small><h1>Skills that get you <em>hired</em></h1><p>In today’s job market, theoretical knowledge is no longer enough. Wiyoventure Hub provides intensive, hands-on, project-based skill development programs designed specifically for youth, graduates, and aspiring freelancers in Douala and the Littoral Region.</p><a class="btn" href="#about" data-register="Youth Skills Training" aria-haspopup="dialog">Register now</a></div>
 <div class="sec"><h2>Content blocks</h2>
 <div class="grid"><div class="card"><h3>Digital Marketing and E-Commerce Growth</h3></div><div class="card"><h3>Web Development &amp; No-Code App Building</h3></div><div class="card"><h3>Graphic Design, AI-Assisted Tools &amp; Video Editing</h3></div><div class="card"><h3>Practical Accounting &amp; Startup Finance</h3></div></div></div>
 <div class="sec"><h2>Class schedules &amp; formats</h2>
@@ -137,7 +166,7 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 </section>
 
 <section class="page" id="coworking">
-<div class="hero"><small>Coworking Space · Akwa, Douala</small><h1>Power. Fiber. <em>Focus.</em></h1><p>In a commercial hub like Douala, sudden electricity blackouts and slow connectivity can destroy client trust and disrupt critical business deadlines. Wiyoventure Hub provides a modern, fully air-conditioned, professional environment built to keep remote workers, independent freelancers, and growing startup teams operating at peak performance.</p><a class="btn" href="#about">Book now</a></div>
+<div class="hero"><small>Coworking Space · Akwa, Douala</small><h1>Power. Fiber. <em>Focus.</em></h1><p>In a commercial hub like Douala, sudden electricity blackouts and slow connectivity can destroy client trust and disrupt critical business deadlines. Wiyoventure Hub provides a modern, fully air-conditioned, professional environment built to keep remote workers, independent freelancers, and growing startup teams operating at peak performance.</p><a class="btn" href="#about" data-book aria-haspopup="dialog">Book now</a></div>
 <div class="sec"><h2>Amenities highlights</h2>
 <div class="grid">
 <div class="card"><h3>Plan 1: Flexible Hot-Desking</h3><p>Open-plan desk seating, high-speed Wi-Fi, solar power backup, and access to the lounge area.</p></div>
@@ -174,9 +203,63 @@ footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
 </section>
 </main>
 
-<footer><span><span class="flogo"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M4 11 L12 30 L20 17 L28 30 L33 15" fill="none" stroke="#D4122B" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 4 H37 V16 Z" fill="#D4122B"/><circle cx="20" cy="11" r="3.2" fill="none" stroke="#D4122B" stroke-width="2.4"/></svg>Wiyo Venture Hub</span>Legal | Cookie policy | © 2026 Wiyo Venture Hub</span><span><a href="#">LinkedIn</a><a href="#">TikTok</a><a href="#">Instagram</a></span></footer>
-<a class="wa" href="#">WhatsApp</a>
+<footer><span><span class="flogo"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M4 11 L12 30 L20 17 L28 30 L33 15" fill="none" stroke="#D4122B" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 4 H37 V16 Z" fill="#D4122B"/><circle cx="20" cy="11" r="3.2" fill="none" stroke="#D4122B" stroke-width="2.4"/></svg>Wiyo Venture Hub</span>Legal | Cookie policy | © 2026 Wiyo Venture Hub</span><span><a>LinkedIn</a><a>TikTok</a><a>Instagram</a></span></footer>
+<a class="wa" href="https://wa.me/23796409448?text=Hello%20Wiyo%20Venture%20Hub%2C%20I%20would%20like%20more%20information." target="_blank" rel="noopener">WhatsApp</a>
 
+<dialog id="regDialog" class="reg" aria-labelledby="regTitle">
+<div class="reg-in">
+<div class="reg-head"><h2 id="regTitle">Registration</h2><button type="button" class="reg-x" id="regClose" aria-label="Close registration form">&times;</button></div>
+<form id="regForm">
+<p class="reg-intro">Tell us about yourself. Your details will open in WhatsApp or your e-mail app, ready to send to the Wiyo Venture Hub team.</p>
+<label for="regProgram">Program <span aria-hidden="true">*</span></label>
+<select id="regProgram" name="program" required><option>Founder Incubation Program</option><option>Youth Skills Training</option></select>
+<label for="regName">Full name <span aria-hidden="true">*</span></label>
+<input id="regName" name="fullname" type="text" autocomplete="name" required maxlength="80" autofocus>
+<label for="regPhone">Phone / WhatsApp <span aria-hidden="true">*</span></label>
+<input id="regPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+\s\-]{8,20}" title="Digits, spaces, + and - only (8 to 20 characters)">
+<label for="regEmail">E-mail <span aria-hidden="true">*</span></label>
+<input id="regEmail" name="email" type="email" autocomplete="email" required maxlength="120">
+<div class="reg-row"><div><label for="regAge">Age <span aria-hidden="true">*</span></label><input id="regAge" name="age" type="number" inputmode="numeric" min="18" max="35" required></div>
+<div><label for="regCity">City</label><input id="regCity" name="city" type="text" autocomplete="address-level2" maxlength="60"></div></div>
+<label for="regNote">Tell us about your project (optional)</label>
+<textarea id="regNote" name="note" maxlength="500"></textarea>
+<div class="reg-actions"><button type="submit" class="btn">Register via WhatsApp</button><button type="button" class="btn btn-alt" id="regMail">Register by e-mail</button></div>
+</form>
+<div class="reg-done" id="regDone" hidden>
+<h2 id="regDoneTitle" tabindex="-1">Almost done</h2>
+<p id="regDoneText"></p>
+<p>Your registration is complete once you press Send in that app.</p>
+<div class="reg-actions"><a class="btn" id="regAgain" target="_blank" rel="noopener" href="#">Open again</a><button type="button" class="btn btn-alt" id="regDoneClose">Close</button></div>
+</div>
+</div>
+</dialog>
+<dialog id="bookDialog" class="reg" aria-labelledby="bookTitle">
+<div class="reg-in">
+<div class="reg-head"><h2 id="bookTitle">Book your space</h2><button type="button" class="reg-x" id="bookClose" aria-label="Close booking form">&times;</button></div>
+<form id="bookForm">
+<p class="reg-intro">Choose your plan and start date. Your details will open in WhatsApp or your e-mail app, ready to send to the Wiyo Venture Hub team.</p>
+<label for="bookPlan">Plan <span aria-hidden="true">*</span></label>
+<select id="bookPlan" name="plan" required autofocus><option value="" selected disabled>Choose a plan</option><option>Flexible Hot-Desking</option><option>Off-Peak Evening</option><option>Full Monthly Membership</option></select>
+<label for="bookName">Full name <span aria-hidden="true">*</span></label>
+<input id="bookName" name="fullname" type="text" autocomplete="name" required maxlength="80">
+<label for="bookPhone">Phone / WhatsApp <span aria-hidden="true">*</span></label>
+<input id="bookPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+\s\-]{8,20}" title="Digits, spaces, + and - only (8 to 20 characters)">
+<label for="bookEmail">E-mail <span aria-hidden="true">*</span></label>
+<input id="bookEmail" name="email" type="email" autocomplete="email" required maxlength="120">
+<div class="reg-row reg-row--stack"><div><label for="bookStart">Start date <span aria-hidden="true">*</span></label><input id="bookStart" name="start" type="date" required></div>
+<div><label for="bookPeople">People <span aria-hidden="true">*</span></label><input id="bookPeople" name="people" type="number" inputmode="numeric" min="1" value="1" required></div></div>
+<label for="bookNote">Anything we should know? (optional)</label>
+<textarea id="bookNote" name="note" maxlength="500"></textarea>
+<div class="reg-actions"><button type="submit" class="btn">Book via WhatsApp</button><button type="button" class="btn btn-alt" id="bookMail">Book by e-mail</button></div>
+</form>
+<div class="reg-done" id="bookDone" hidden>
+<h2 id="bookDoneTitle" tabindex="-1">Almost done</h2>
+<p id="bookDoneText"></p>
+<p>Your booking request is sent once you press Send in that app.</p>
+<div class="reg-actions"><a class="btn" id="bookAgain" target="_blank" rel="noopener" href="#">Open again</a><button type="button" class="btn btn-alt" id="bookDoneClose">Close</button></div>
+</div>
+</div>
+</dialog>
 <script>
 function show(){var h=(location.hash||"#home").slice(1);if(!document.getElementById(h))h="home";
 document.querySelectorAll(".page").forEach(function(p){p.classList.toggle("on",p.id===h)});
@@ -184,6 +267,88 @@ document.querySelectorAll("nav a.t").forEach(function(a){a.classList.toggle("on"
 window.scrollTo(0,0)}
 window.addEventListener("hashchange",show);show();
 document.getElementById("exploreBtn").addEventListener("click",function(e){var t=document.getElementById("programs");if(t){e.preventDefault();t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}});
+</script>
+<script>
+(function(){
+/* Where registrations and bookings go. WhatsApp number: international format, digits only, no +. */
+var WA_NUMBER="23796409448";
+var REG_EMAIL="wiyoventurehub@gmail.com";
+function setup(c){
+  var dlg=document.getElementById(c.dialog);
+  if(!dlg||typeof dlg.showModal!=="function")return; /* old browser: buttons keep their link to About us */
+  var form=document.getElementById(c.form),done=document.getElementById(c.done),
+      doneText=document.getElementById(c.doneText),doneTitle=document.getElementById(c.doneTitle),again=document.getElementById(c.again);
+  function openForm(arg){
+    form.reset();form.hidden=false;done.hidden=true;
+    if(c.onOpen)c.onOpen(form,arg);
+    dlg.showModal();
+  }
+  function values(){
+    var o={};c.fields.forEach(function(k){o[k]=form.elements[k].value.trim()});
+    return o;
+  }
+  function finish(channel,url){
+    doneText.textContent=channel==="wa"?"Your message is ready in WhatsApp.":"Your message is ready in your e-mail app.";
+    again.textContent=channel==="wa"?"Open WhatsApp again":"Open e-mail again";
+    again.href=url;
+    if(channel==="wa"){again.target="_blank"}else{again.removeAttribute("target")}
+    form.hidden=true;done.hidden=false;
+    doneTitle.focus();
+  }
+  function send(channel){
+    var d=values(),text=c.message(d),url;
+    if(channel==="wa"){
+      url="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(text);
+      window.open(url,"_blank","noopener");
+    }else{
+      url="mailto:"+REG_EMAIL+"?subject="+encodeURIComponent(c.subject(d))+"&body="+encodeURIComponent(text.replace(/\n/g,"\r\n"));
+      window.location.href=url;
+    }
+    finish(channel,url);
+  }
+  document.querySelectorAll("["+c.trigger+"]").forEach(function(a){
+    a.addEventListener("click",function(e){e.preventDefault();openForm(a.getAttribute(c.trigger))});
+  });
+  form.addEventListener("submit",function(e){e.preventDefault();send("wa")});
+  document.getElementById(c.mail).addEventListener("click",function(){if(form.reportValidity())send("mail")});
+  document.getElementById(c.close).addEventListener("click",function(){dlg.close()});
+  document.getElementById(c.doneClose).addEventListener("click",function(){dlg.close()});
+  dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()}); /* click on the dark backdrop */
+}
+function niceDate(v){
+  var p=v.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]);
+  return isNaN(d.getTime())?v:d.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+}
+function todayISO(){
+  var t=new Date();
+  return t.getFullYear()+"-"+("0"+(t.getMonth()+1)).slice(-2)+"-"+("0"+t.getDate()).slice(-2);
+}
+setup({
+  dialog:"regDialog",form:"regForm",done:"regDone",doneText:"regDoneText",doneTitle:"regDoneTitle",again:"regAgain",
+  close:"regClose",doneClose:"regDoneClose",mail:"regMail",trigger:"data-register",
+  fields:["program","fullname","phone","email","age","city","note"],
+  onOpen:function(f,program){if(program)f.elements.program.value=program},
+  message:function(d){
+    var l=["Hello Wiyo Venture Hub, I would like to register.","","Program: "+d.program,"Name: "+d.fullname,"Phone / WhatsApp: "+d.phone,"E-mail: "+d.email,"Age: "+d.age];
+    if(d.city)l.push("City: "+d.city);
+    if(d.note)l.push("Project: "+d.note);
+    return l.join("\n");
+  },
+  subject:function(d){return "Registration - "+d.program}
+});
+setup({
+  dialog:"bookDialog",form:"bookForm",done:"bookDone",doneText:"bookDoneText",doneTitle:"bookDoneTitle",again:"bookAgain",
+  close:"bookClose",doneClose:"bookDoneClose",mail:"bookMail",trigger:"data-book",
+  fields:["plan","fullname","phone","email","start","people","note"],
+  onOpen:function(f){f.elements.start.min=todayISO()},
+  message:function(d){
+    var l=["Hello Wiyo Venture Hub, I would like to book a coworking space.","","Plan: "+d.plan,"Name: "+d.fullname,"Phone / WhatsApp: "+d.phone,"E-mail: "+d.email,"Start date: "+niceDate(d.start),"People: "+d.people];
+    if(d.note)l.push("Notes: "+d.note);
+    return l.join("\n");
+  },
+  subject:function(d){return "Coworking booking - "+d.plan}
+});
+})();
 </script>
 </body>
 </html>
