@@ -35,6 +35,12 @@
     .register-extra-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
     @media(max-width:899px){.hero--home{grid-template-columns:1fr;gap:1.75rem}.hero--home small{font-size:.72rem;letter-spacing:.08em}.hero--home p{max-width:52ch}.hero-visual{margin-bottom:10px}.hero-visual::before{transform:translate(-10px,10px)}#programs{scroll-margin-top:10rem}}
     @media(max-width:480px){.register-extra-row{grid-template-columns:1fr}}
+    .footer-socials{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin:1.25rem 0 .5rem}
+    .footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;color:#bd7777;text-decoration:none;transition:color .2s,transform .2s}
+    .footer-socials a:hover{color:#C81927;transform:translateY(-2px)}
+    .footer-socials svg{width:27px;height:27px;display:block}
+    .whatsapp-link{font-size:0!important;width:68px;height:68px;display:flex!important;align-items:center;justify-content:center;border-radius:50%;background:#E85B45!important;color:#fff!important;box-shadow:0 8px 24px #0002}
+    .whatsapp-link::before{content:"";display:block;width:34px;height:34px;background:currentColor;mask:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-5.3A8.4 8.4 0 1 1 21 11.5Z%22/%3E%3Cpath d=%22M8.5 8.5c.5 2.5 2.5 4.5 5 5l1.2-1.2 2 1c-.2 1.2-1.1 2-2.3 2-3.7-.4-6.6-3.3-7-7-.1-1.2.8-2.1 2-2.3l1 2Z%22/%3E%3C/svg%3E') center/contain no-repeat;mask-size:contain}
   </style>
 
   <script src="js/script.js" defer></script>
@@ -169,6 +175,11 @@
     <a class="brand brand-footer" href="#home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 38"><path d="M3 10 12 31 21 17 29 29 35 12" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 3h14v14z" fill="currentColor"/><path d="M15 10c2-5 9-5 11 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span class="brand-name">wiyo<small>venture hub</small></span></a>
     <p>Empowering partnerships. Driving growth.</p>
     <div class="footer-links"><a href="#about">About us</a><a href="#incubation">Programs</a><a href="mailto:wiyoventurehub@gmail.com">Contact</a></div>
+    <nav class="footer-socials" aria-label="Social media">
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.2a4.3 4.3 0 1 1-4-4.3"/><path d="M14 3c.5 3.2 2.4 5.1 6 5.5"/></svg></a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+    </nav>
     <small>© 2026 Wiyo Venture Hub. All rights reserved.</small>
   </footer>
 
@@ -194,14 +205,30 @@
 
   <dialog class="modal" id="booking-modal">
     <form class="modal-form" id="booking-form">
-      <div class="modal-heading"><div><p class="eyebrow">Coworking space</p><h2>Ask about a booking</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div>
-      <label for="booking-plan">Workspace plan</label><select id="booking-plan" name="plan"><option>Flexible Hot-Desking</option><option>Off-Peak Night Desk Pass — 30k</option><option>Full Coworking Membership — 25k</option></select>
-      <label for="booking-name">Full name</label><input id="booking-name" name="name" autocomplete="name" required>
-      <label for="booking-email">Email address</label><input id="booking-email" name="email" type="email" autocomplete="email" required>
-      <label for="booking-date">Preferred start date</label><input id="booking-date" name="date" type="date" required>
-      <label for="booking-message">Additional details (optional)</label><textarea id="booking-message" name="message" rows="3" maxlength="500"></textarea>
-      <button class="button modal-submit" type="submit">Continue on WhatsApp →</button>
-      <p class="form-note">This prepares a booking enquiry; it does not confirm availability.</p>
+      <div class="modal-heading"><div><p class="eyebrow">Coworking space</p><h2>Book your space</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div>
+      <p class="form-note">Choose your plan and start date. Your details will open in WhatsApp or your e-mail app, ready to send to the Wiyo Venture Hub team.</p>
+      <label for="booking-plan">Plan <span aria-hidden="true">*</span></label>
+      <select id="booking-plan" name="plan" required autofocus>
+        <option value="" selected disabled>Choose a plan</option>
+        <option>Flexible Hot-Desking</option>
+        <option>Off-Peak Night Desk Pass — 30k</option>
+        <option>Full Coworking Membership — 25k</option>
+      </select>
+      <label for="booking-name">Full name <span aria-hidden="true">*</span></label>
+      <input id="booking-name" name="fullname" type="text" autocomplete="name" required maxlength="80">
+      <label for="booking-phone">Phone / WhatsApp <span aria-hidden="true">*</span></label>
+      <input id="booking-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+\s\-]{8,20}" title="Digits, spaces, + and - only (8 to 20 characters)">
+      <label for="booking-email">E-mail <span aria-hidden="true">*</span></label>
+      <input id="booking-email" name="email" type="email" autocomplete="email" required maxlength="120">
+      <div class="register-extra-row">
+        <div><label for="booking-date">Start date <span aria-hidden="true">*</span></label><input id="booking-date" name="start" type="date" required></div>
+        <div><label for="booking-people">People <span aria-hidden="true">*</span></label><input id="booking-people" name="people" type="number" inputmode="numeric" min="1" value="1" required></div>
+      </div>
+      <label for="booking-message">Anything we should know? (optional)</label>
+      <textarea id="booking-message" name="note" rows="3" maxlength="500"></textarea>
+      <button class="button modal-submit" type="submit">Book via WhatsApp →</button>
+      <button class="button modal-submit" id="booking-email-submit" type="button">Book by e-mail →</button>
+      <p class="form-note">Your booking request is not confirmed until the team confirms availability.</p>
     </form>
   </dialog>
 
@@ -218,6 +245,8 @@
         var program = v('program'), name = v('name'), email = v('email'), phone = v('phone');
         var age = v('age'), city = v('city'), message = v('message');
         var lines = [
+          'Hello Wiyo Venture Hub, I would like more information.',
+          'Hello Wiyo Venture Hub, I would like to register.',
           'Hello Wiyo Venture Hub, I would like to register.',
           '',
           'Program: ' + program,
@@ -236,6 +265,8 @@
         var program = v('program'), name = v('name'), email = v('email'), phone = v('phone');
         var age = v('age'), city = v('city'), message = v('message');
         var body = [
+          'Hello Wiyo Venture Hub, I would like more information.',
+          'Hello Wiyo Venture Hub, I would like to register.',
           'Hello Wiyo Venture Hub, I would like to register.',
           '',
           'Program: ' + program,
@@ -253,5 +284,60 @@
     }());
   </script>
 
+
+  <script>
+    (function () {
+      var modal = document.getElementById('booking-modal');
+      var form = document.getElementById('booking-form');
+      var emailButton = document.getElementById('booking-email-submit');
+      if (!modal || !form) return;
+
+      document.querySelectorAll('[data-open-booking]').forEach(function (button) {
+        button.addEventListener('click', function () {
+          var card = button.closest('.pricing-card');
+          var heading = card && card.querySelector('h3');
+          var plan = form.elements.plan;
+          if (heading) {
+            var label = heading.textContent.trim();
+            for (var i = 0; i < plan.options.length; i++) {
+              if (plan.options[i].text.indexOf(label) !== -1 || label.indexOf(plan.options[i].text.split(' — ')[0]) !== -1) {
+                plan.selectedIndex = i;
+                break;
+              }
+            }
+          }
+          if (typeof modal.showModal === 'function') modal.showModal();
+          else modal.setAttribute('open', '');
+        });
+      });
+      modal.querySelectorAll('[data-close-modal]').forEach(function (button) {
+        button.addEventListener('click', function () { modal.close(); });
+      });
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) modal.close();
+      });
+
+      function values() {
+        var get = function (name) { return String(form.elements[name].value || '').trim(); };
+        return { plan: get('plan'), fullname: get('fullname'), phone: get('phone'), email: get('email'), start: get('start'), people: get('people'), note: get('note') };
+      }
+      function message(d) {
+        var lines = ['Hello Wiyo Venture Hub, I would like to book a coworking space.', '', 'Plan: ' + d.plan, 'Name: ' + d.fullname, 'Phone / WhatsApp: ' + d.phone, 'E-mail: ' + d.email, 'Start date: ' + d.start, 'People: ' + d.people];
+        if (d.note) lines.push('Additional details: ' + d.note);
+        return lines.join('\n');
+      }
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+        var d = values();
+        window.open('https://wa.me/23796409448?text=' + encodeURIComponent(message(d)), '_blank', 'noopener');
+      });
+      emailButton.addEventListener('click', function () {
+        if (!form.reportValidity()) return;
+        var d = values();
+        window.location.href = 'mailto:wiyoventurehub@gmail.com?subject=' + encodeURIComponent('Coworking booking - ' + d.plan) + '&body=' + encodeURIComponent(message(d));
+      });
+    }());
+  </script>
 </body>
 </html>
