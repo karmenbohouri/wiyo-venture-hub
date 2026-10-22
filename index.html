@@ -113,6 +113,55 @@ html:has(dialog.reg[open]){overflow:hidden}
 @media (max-width:480px){.reg-in{padding:1.25rem}.reg-actions .btn{flex:1 1 100%}.reg-row--stack{grid-template-columns:1fr}}
 footer a:not([href]){cursor:default}
 footer a:not([href]):hover{text-decoration:none}
+.socials{display:flex;align-items:center;gap:1.1rem;align-self:flex-start;margin-right:max(0px,calc(76px - 5vw))}
+.socials a{margin-right:0;display:block;line-height:0}
+.socials svg{width:26px;height:26px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.wa{touch-action:none;-webkit-user-select:none;user-select:none;cursor:grab}
+.wa.dragging{cursor:grabbing;transition:none}
+.wa{display:flex;align-items:center;justify-content:center;width:56px;height:56px;padding:0;border-radius:50%;color:#fff}
+.wa svg{width:30px;height:30px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+/* Space availability board */
+.av-intro{color:#555;margin:0 0 1rem;max-width:70ch}
+.av-nav{display:flex;align-items:center;gap:.6rem;margin:0 0 .9rem}
+.av-range{flex:1;text-align:center;font-weight:600}
+.av-arrow,.av-today{background:#fff;border:1px solid #C81927;border-radius:6px;color:#C81927;cursor:pointer;font-family:inherit;font-weight:600}
+.av-arrow{width:44px;height:44px;padding:0;font-size:1.5rem;line-height:1}
+.av-today{height:44px;padding:0 1rem;font-size:.95rem}
+.av-arrow:hover:not(:disabled),.av-today:hover{background:#C81927;color:#fff}
+.av-arrow:disabled{opacity:.35;cursor:not-allowed}
+.av button:focus-visible{outline:2px solid #C81927;outline-offset:2px}
+.av-days{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;margin-bottom:1.25rem}
+.av-day{display:flex;flex-direction:column;align-items:center;gap:.1rem;min-height:68px;padding:.45rem .2rem;background:#fff;border:1px solid #d9c4c4;border-radius:8px;color:#0D0D0D;cursor:pointer;font-family:inherit}
+.av-day:hover:not(:disabled){border-color:#C81927}
+.av-day[aria-pressed="true"]{background:#F3E5E5;border-color:#C81927;box-shadow:inset 0 0 0 1px #C81927}
+.av-day:disabled{opacity:.4;cursor:not-allowed}
+.av-wd{color:#555;font-size:.78rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.av-num{font-family:Syne,sans-serif;font-size:1.3rem;font-weight:700;line-height:1.1}
+.av-sub{color:#C81927;font-size:.78rem;font-weight:600}
+.av-panel{border:1px solid #ecdcdc;border-radius:8px;padding:1rem 1.25rem}
+.av-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.25rem 1rem;margin-bottom:.5rem}
+.av-head h3{margin:0}
+.av-head p{margin:0;color:#555;font-size:.95rem}
+.av-row{display:grid;grid-template-columns:minmax(150px,1fr) 3fr 112px;gap:.5rem 1.25rem;align-items:center;padding:.9rem 0;border-top:1px solid #ecdcdc}
+.av-name{font-weight:600;margin-bottom:.3rem}
+.av-chip{display:inline-block;padding:.15rem .6rem;border:1.5px solid #C81927;border-radius:999px;font-size:.78rem;font-weight:600;color:#C81927;background:#fff}
+.av-chip--partly{background:#F3E5E5}
+.av-chip--full{background:#C81927;color:#fff}
+.av-bar{position:relative;height:14px;border:1px solid #d9c4c4;border-radius:7px;background:#fff;overflow:hidden}
+.av-seg{position:absolute;top:0;bottom:0;background:#C81927}
+.av-ticks{position:relative;height:1.1rem;margin-top:.25rem;color:#555;font-size:.78rem}
+.av-ticks span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.av-ticks span:first-child{transform:none}
+.av-ticks span:last-child{transform:translateX(-100%)}
+.av-times{margin:.3rem 0 0;color:#333;font-size:.9rem}
+.av-reserve{min-height:44px;padding:.55rem 1rem;background:#fff;border:0;border-radius:4px;box-shadow:inset 0 0 0 2px #C81927;color:#C81927;cursor:pointer;font-family:inherit;font-size:.95rem;font-weight:600}
+.av-reserve:hover{background:#C81927;color:#fff}
+.av-legend{display:flex;gap:1.25rem;margin:.9rem 0 0;padding:0;list-style:none;color:#555;font-size:.9rem}
+.av-legend li{display:flex;align-items:center;gap:.45rem}
+.av-swatch{width:22px;height:12px;border:1px solid #d9c4c4;border-radius:6px;background:#fff}
+.av-swatch--busy{background:#C81927;border-color:#C81927}
+@media (max-width:700px){.av-row{grid-template-columns:1fr}.av-panel{padding:.9rem 1rem}}
+@media (max-width:520px){.av-ticks span:nth-child(even){display:none}.av-nav{flex-wrap:wrap}.av-range{order:-1;flex:1 0 100%}.av-today{flex:1}.av-days{gap:.35rem}}
 </style>
 </head>
 <body>
@@ -174,6 +223,19 @@ footer a:not([href]):hover{text-decoration:none}
 <div class="card"><h3>Plan 3: Full Monthly Membership</h3><p>Full-day access, reserved seating option, free credits for meeting room usage, business address usage.</p></div></div>
 <ul class="chk" style="margin-top:1.5rem"><li><strong>10kVA Solar Inverter Grid:</strong> Dedicated renewable solar backup ensures 100% power uptime, even during severe municipal load-shedding.</li><li><strong>Dual Fiber-Optic Wi-Fi:</strong> High-speed internet powered by redundant service providers for smooth video conferencing, file uploads, and online streaming.</li><li><strong>Air-Conditioned Comfort:</strong> Fully climate-controlled open-plan work halls, private booths, and conference spaces.</li><li><strong>Continuous Power &amp; Refreshments:</strong> On-site coffee, lounge area, printing, scanning, and secure access.</li></ul>
 <div class="hours"><h3>Standard operating hours</h3><ul><li>Monday – Friday: 8:00 AM – 8:00 PM</li><li>Saturday: 9:00 AM – 6:00 PM</li><li>Evening Off-Peak Hours: 6:00 PM – Midnight</li></ul></div></div>
+<div class="sec av" id="availability">
+<h2>Space availability</h2>
+<p class="av-intro">See which spaces are free, day by day and hour by hour. Availability is indicative: confirm your booking through WhatsApp or e-mail.</p>
+<div class="av-nav">
+<button type="button" class="av-arrow" id="avPrev" aria-label="Previous week">&lsaquo;</button>
+<div class="av-range" id="avRange" aria-live="polite"></div>
+<button type="button" class="av-arrow" id="avNext" aria-label="Next week">&rsaquo;</button>
+<button type="button" class="av-today" id="avToday">Today</button>
+</div>
+<div class="av-days" id="avDays" role="group" aria-label="Choose a day"></div>
+<div class="av-panel" id="avPanel" role="region"></div>
+<ul class="av-legend"><li><span class="av-swatch"></span>Free</li><li><span class="av-swatch av-swatch--busy"></span>Booked</li></ul>
+</div>
 </section>
 
 <section class="page" id="consulting">
@@ -203,8 +265,8 @@ footer a:not([href]):hover{text-decoration:none}
 </section>
 </main>
 
-<footer><span><span class="flogo"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M4 11 L12 30 L20 17 L28 30 L33 15" fill="none" stroke="#D4122B" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 4 H37 V16 Z" fill="#D4122B"/><circle cx="20" cy="11" r="3.2" fill="none" stroke="#D4122B" stroke-width="2.4"/></svg>Wiyo Venture Hub</span>Legal | Cookie policy | © 2026 Wiyo Venture Hub</span><span><a>LinkedIn</a><a>TikTok</a><a>Instagram</a></span></footer>
-<a class="wa" href="https://wa.me/23796409448?text=Hello%20Wiyo%20Venture%20Hub%2C%20I%20would%20like%20more%20information." target="_blank" rel="noopener">WhatsApp</a>
+<footer><span><span class="flogo"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M4 11 L12 30 L20 17 L28 30 L33 15" fill="none" stroke="#D4122B" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 4 H37 V16 Z" fill="#D4122B"/><circle cx="20" cy="11" r="3.2" fill="none" stroke="#D4122B" stroke-width="2.4"/></svg>Wiyo Venture Hub</span>Legal | Cookie policy | © 2026 Wiyo Venture Hub</span><!-- Social icons: line style from Tabler Icons (MIT); links are decorative for now --><span class="socials"><a><svg viewBox="0 0 24 24" role="img" aria-label="LinkedIn"><path d="M4.5 9.5V20"/><path d="M4.5 4.5v.01"/><path d="M10.5 20V9.5"/><path d="M10.5 14.25a4.75 4.75 0 0 1 9.5 0V20"/></svg></a><a><svg viewBox="0 0 24 24" role="img" aria-label="TikTok"><path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917"/></svg></a><a><svg viewBox="0 0 24 24" role="img" aria-label="Instagram"><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/><path d="M8.5 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0 -7 0"/><path d="M17 7v.01"/></svg></a></span></footer>
+<a class="wa" href="https://wa.me/23796409448?text=Hello%20Wiyo%20Venture%20Hub%2C%20I%20would%20like%20more%20information." target="_blank" rel="noopener" title="WhatsApp - drag to move" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg></a>
 
 <dialog id="regDialog" class="reg" aria-labelledby="regTitle">
 <div class="reg-in">
@@ -314,6 +376,7 @@ function setup(c){
   document.getElementById(c.close).addEventListener("click",function(){dlg.close()});
   document.getElementById(c.doneClose).addEventListener("click",function(){dlg.close()});
   dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()}); /* click on the dark backdrop */
+  return openForm;
 }
 function niceDate(v){
   var p=v.split("-"),d=new Date(+p[0],+p[1]-1,+p[2]);
@@ -336,11 +399,17 @@ setup({
   },
   subject:function(d){return "Registration - "+d.program}
 });
-setup({
+var openBook=setup({
   dialog:"bookDialog",form:"bookForm",done:"bookDone",doneText:"bookDoneText",doneTitle:"bookDoneTitle",again:"bookAgain",
   close:"bookClose",doneClose:"bookDoneClose",mail:"bookMail",trigger:"data-book",
   fields:["plan","fullname","phone","email","start","people","note"],
-  onOpen:function(f){f.elements.start.min=todayISO()},
+  onOpen:function(f,arg){
+    f.elements.start.min=todayISO();
+    if(arg&&typeof arg==="object"){ /* opened from the availability board: prefill date and space */
+      f.elements.start.value=arg.date;
+      f.elements.note.value="Space: "+arg.space+" - "+niceDate(arg.date)+(arg.free?" (free "+arg.free+")":"");
+    }
+  },
   message:function(d){
     var l=["Hello Wiyo Venture Hub, I would like to book a coworking space.","","Plan: "+d.plan,"Name: "+d.fullname,"Phone / WhatsApp: "+d.phone,"E-mail: "+d.email,"Start date: "+niceDate(d.start),"People: "+d.people];
     if(d.note)l.push("Notes: "+d.note);
@@ -348,6 +417,210 @@ setup({
   },
   subject:function(d){return "Coworking booking - "+d.plan}
 });
+/* the availability board asks for a booking through this event */
+document.addEventListener("wiyo:book",function(e){if(openBook){e.preventDefault();openBook(e.detail)}});
+})();
+</script>
+<script>
+/* Floating WhatsApp button: drag to move it, tap or click to open WhatsApp */
+(function(){
+var b=document.querySelector("a.wa");
+if(!b||!window.PointerEvent)return;
+b.setAttribute("draggable","false");
+var M=8,sx=0,sy=0,ox=0,oy=0,pid=null,active=false,moved=false;
+function clamp(v,lo,hi){return Math.max(lo,Math.min(hi,v))}
+function place(l,t){
+  b.style.left=clamp(l,M,window.innerWidth-b.offsetWidth-M)+"px";
+  b.style.top=clamp(t,M,window.innerHeight-b.offsetHeight-M)+"px";
+  b.style.right="auto";b.style.bottom="auto";
+}
+b.addEventListener("pointerdown",function(e){
+  if(e.pointerType==="mouse"&&e.button!==0)return;
+  var r=b.getBoundingClientRect();
+  sx=e.clientX;sy=e.clientY;ox=r.left;oy=r.top;pid=e.pointerId;active=true;moved=false;
+  b.setPointerCapture(pid); /* keeps receiving moves even if the mouse is faster than the button */
+});
+b.addEventListener("pointermove",function(e){
+  if(!active||e.pointerId!==pid)return;
+  var dx=e.clientX-sx,dy=e.clientY-sy;
+  if(!moved){
+    if(Math.abs(dx)<6&&Math.abs(dy)<6)return; /* a small wobble is still a click */
+    moved=true;b.classList.add("dragging");
+  }
+  place(ox+dx,oy+dy);
+});
+function end(e){
+  if(!active||e.pointerId!==pid)return;
+  active=false;b.classList.remove("dragging");
+  if(b.hasPointerCapture(pid))b.releasePointerCapture(pid);
+  setTimeout(function(){moved=false},50);
+}
+b.addEventListener("pointerup",end);
+b.addEventListener("pointercancel",end);
+b.addEventListener("click",function(e){if(moved)e.preventDefault()}); /* a drag must not open WhatsApp */
+window.addEventListener("resize",function(){
+  if(b.style.left){var r=b.getBoundingClientRect();place(r.left,r.top)} /* keep it on screen */
+});
+})();
+</script>
+<script>
+/* Space availability board (Coworking page) */
+(function(){
+var root=document.getElementById("availability");
+if(!root)return;
+
+/* ============================== EDIT HERE ==============================
+   EXAMPLE DATA for the showcase: the space names and the bookings below are
+   placeholders. Replace SPACES with the real spaces and BOOKINGS with the real
+   reservations (one line per booking).
+   - from / to : "YYYY-MM-DD", both days included. d(n) = "n days from today",
+                 handy for the demo; use real dates such as "2026-11-03" for real use.
+   - start / end : "HH:MM" (24 h). The hours are blocked on every day from -> to.
+   ======================================================================= */
+var SPACES=["Open-plan desk 1","Open-plan desk 2","Open-plan desk 3","Private booth 1","Private booth 2","Conference room"];
+var BOOKINGS=[
+  {space:"Open-plan desk 1",from:d(0),to:d(4),start:"08:00",end:"12:00"},
+  {space:"Open-plan desk 1",from:d(7),to:d(9),start:"13:00",end:"20:00"},
+  {space:"Open-plan desk 2",from:d(1),to:d(1),start:"14:00",end:"18:00"},
+  {space:"Open-plan desk 2",from:d(6),to:d(10),start:"08:00",end:"20:00"},
+  {space:"Open-plan desk 3",from:d(0),to:d(0),start:"08:00",end:"20:00"},
+  {space:"Open-plan desk 3",from:d(8),to:d(12),start:"13:00",end:"17:00"},
+  {space:"Private booth 1",from:d(2),to:d(6),start:"09:00",end:"13:00"},
+  {space:"Private booth 1",from:d(13),to:d(17),start:"08:00",end:"20:00"},
+  {space:"Private booth 2",from:d(1),to:d(1),start:"10:00",end:"12:00"},
+  {space:"Private booth 2",from:d(10),to:d(10),start:"15:00",end:"19:00"},
+  {space:"Conference room",from:d(1),to:d(1),start:"09:00",end:"11:00"},
+  {space:"Conference room",from:d(0),to:d(0),start:"14:00",end:"17:00"},
+  {space:"Conference room",from:d(7),to:d(7),start:"09:00",end:"18:00"}
+];
+/* ============================ END OF EDIT ZONE =========================== */
+
+/* Opening hours, in minutes from midnight, as written in "Standard operating hours" (Sunday: closed) */
+var HOURS={1:[480,1200],2:[480,1200],3:[480,1200],4:[480,1200],5:[480,1200],6:[540,1080]};
+var MAX_WEEKS=12;
+
+function pad(n){return (n<10?"0":"")+n}
+function iso(t){return t.getFullYear()+"-"+pad(t.getMonth()+1)+"-"+pad(t.getDate())}
+function parse(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2],12,0,0)}
+function addDays(t,n){var r=new Date(t.getTime());r.setDate(r.getDate()+n);return r}
+function d(n){return iso(addDays(new Date(),n))}
+function monday(t){return addDays(t,-((t.getDay()+6)%7))}
+function mins(hhmm){var p=hhmm.split(":");return +p[0]*60+(+p[1])}
+function fmt(m){var h=Math.floor(m/60);return (h%12||12)+":"+pad(m%60)+" "+(h>=12?"PM":"AM")}
+function fmtH(m){var h=Math.floor(m/60);return (h%12||12)+" "+(h>=12?"PM":"AM")}
+function nice(t){return t.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
+function short(t){return t.toLocaleDateString("en-GB",{day:"numeric",month:"short"})}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
+function ranges(list){return list.map(function(r){return fmt(r[0])+" – "+fmt(r[1])}).join(", ")}
+
+/* busy / free hours of one space on one day */
+function dayInfo(space,day){
+  var h=HOURS[parse(day).getDay()];
+  if(!h)return null;
+  var o=h[0],c=h[1],busy=[];
+  BOOKINGS.forEach(function(b){
+    if(b.space!==space||day<b.from||day>b.to)return;
+    var s=Math.max(o,mins(b.start)),e=Math.min(c,mins(b.end));
+    if(e>s)busy.push([s,e]);
+  });
+  busy.sort(function(a,b){return a[0]-b[0]});
+  var merged=[];
+  busy.forEach(function(x){
+    var l=merged[merged.length-1];
+    if(l&&x[0]<=l[1])l[1]=Math.max(l[1],x[1]);else merged.push([x[0],x[1]]);
+  });
+  var free=[],cur=o;
+  merged.forEach(function(x){if(x[0]>cur)free.push([cur,x[0]]);cur=Math.max(cur,x[1])});
+  if(cur<c)free.push([cur,c]);
+  return {open:[o,c],busy:merged,free:free,status:!merged.length?"free":(!free.length?"full":"partly")};
+}
+
+var now=new Date();
+var base=now.getDay()===0?addDays(now,1):now;   /* first selectable day: today, or Monday if today is Sunday */
+var baseISO=iso(base),firstWeek=monday(base),weekStart=firstWeek,selected=baseISO;
+var daysBox=document.getElementById("avDays"),panel=document.getElementById("avPanel"),
+    range=document.getElementById("avRange"),prev=document.getElementById("avPrev"),
+    next=document.getElementById("avNext"),todayBtn=document.getElementById("avToday");
+
+function weekDays(){var a=[];for(var i=0;i<6;i++)a.push(addDays(weekStart,i));return a}
+
+function buildDays(){
+  var days=weekDays();
+  if(!days.some(function(x){return iso(x)===selected&&selected>=baseISO}))
+    selected=iso(days.filter(function(x){return iso(x)>=baseISO})[0]);
+  range.textContent=short(days[0])+" – "+short(days[5])+" "+days[5].getFullYear();
+  prev.disabled=iso(weekStart)<=iso(firstWeek);
+  next.disabled=iso(weekStart)>=iso(addDays(firstWeek,7*MAX_WEEKS));
+  daysBox.textContent="";
+  days.forEach(function(x){
+    var day=iso(x),past=day<baseISO,b=el("button","av-day");
+    b.type="button";b.disabled=past;b.setAttribute("data-day",day);
+    var open=past?0:SPACES.filter(function(s){return dayInfo(s,day).status!=="full"}).length;
+    b.setAttribute("aria-label",nice(x)+(past?" (past)":", "+open+" of "+SPACES.length+" spaces with free hours"));
+    b.appendChild(el("span","av-wd",x.toLocaleDateString("en-GB",{weekday:"short"})));
+    b.appendChild(el("span","av-num",String(x.getDate())));
+    b.appendChild(el("span","av-sub",past?"":(open?open+" free":"Full")));
+    b.addEventListener("click",function(){selected=day;mark();drawPanel()});
+    daysBox.appendChild(b);
+  });
+  mark();drawPanel();
+}
+function mark(){
+  [].forEach.call(daysBox.children,function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-day")===selected))});
+}
+
+function ticks(o,c){
+  var r=[],t=o;
+  for(;t<=c;t+=120)r.push(t);
+  if(c-r[r.length-1]>=90)r.push(c);
+  return r;
+}
+
+function drawPanel(){
+  var t=parse(selected),h=HOURS[t.getDay()];
+  panel.textContent="";
+  panel.setAttribute("aria-label","Availability on "+nice(t));
+  var head=el("div","av-head");
+  head.appendChild(el("h3","",nice(t)));
+  head.appendChild(el("p","","Open "+fmt(h[0])+" – "+fmt(h[1])));
+  panel.appendChild(head);
+  SPACES.forEach(function(name){
+    var info=dayInfo(name,selected),row=el("div","av-row"),left=el("div"),mid=el("div"),act=el("div");
+    left.appendChild(el("div","av-name",name));
+    left.appendChild(el("span","av-chip"+(info.status==="free"?"":" av-chip--"+info.status),
+      info.status==="free"?"Available":(info.status==="partly"?"Partly booked":"Fully booked")));
+    var text=info.status==="free"?"Free: "+ranges(info.free)
+      :info.status==="full"?"Booked: "+ranges(info.busy)
+      :"Booked: "+ranges(info.busy)+" · Free: "+ranges(info.free);
+    var o=info.open[0],c=info.open[1],bar=el("div","av-bar");
+    bar.setAttribute("role","img");bar.setAttribute("aria-label",name+". "+text);
+    info.busy.forEach(function(x){
+      var seg=el("div","av-seg");
+      seg.style.left=((x[0]-o)/(c-o)*100)+"%";seg.style.width=((x[1]-x[0])/(c-o)*100)+"%";
+      bar.appendChild(seg);
+    });
+    var tk=el("div","av-ticks");tk.setAttribute("aria-hidden","true");
+    ticks(o,c).forEach(function(m){var s=el("span","",fmtH(m));s.style.left=((m-o)/(c-o)*100)+"%";tk.appendChild(s)});
+    mid.appendChild(bar);mid.appendChild(tk);mid.appendChild(el("p","av-times",text));
+    if(info.status!=="full"){
+      var b=el("button","av-reserve","Reserve");
+      b.type="button";b.setAttribute("aria-label","Reserve "+name+" on "+nice(t));
+      b.addEventListener("click",function(){
+        var ev=new CustomEvent("wiyo:book",{cancelable:true,detail:{date:selected,space:name,free:info.status==="partly"?ranges(info.free):""}});
+        if(document.dispatchEvent(ev))location.hash="#about"; /* booking form unavailable: same fallback as the other buttons */
+      });
+      act.appendChild(b);
+    }
+    row.appendChild(left);row.appendChild(mid);row.appendChild(act);
+    panel.appendChild(row);
+  });
+}
+
+function shift(n){weekStart=addDays(weekStart,7*n);selected=iso(addDays(parse(selected),7*n));buildDays()}
+prev.addEventListener("click",function(){shift(-1)});
+next.addEventListener("click",function(){shift(1)});
+todayBtn.addEventListener("click",function(){weekStart=firstWeek;selected=baseISO;buildDays()});
+buildDays();
 })();
 </script>
 </body>
