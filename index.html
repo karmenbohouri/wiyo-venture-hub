@@ -1,92 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Wiyo Venture Hub — Build. Launch. Thrive.</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#0D0D0D;--bg:#F9F7F3;--surface:#fff;--gold:#C8A84B;--green:#1A6B3C;--pale:#EAF3EE;--mute:#555;--line:#E5E2DA;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#F3F1EA;--bg:#101512;--surface:#18201B;--pale:#1B2A21;--mute:#A9B3AC;--line:#2A352E;--green:#3DA668}}
-:root[data-theme="dark"]{--ink:#F3F1EA;--bg:#101512;--surface:#18201B;--pale:#1B2A21;--mute:#A9B3AC;--line:#2A352E;--green:#3DA668}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
-h1,h2,h3{font-family:Syne,sans-serif;line-height:1.15;text-wrap:balance}
-h3{font-size:1.125rem;line-height:1.2}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.7rem 5vw;background:var(--bg);border-bottom:1px solid var(--line)}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:11}
-.logo{font:800 1.2rem Syne,sans-serif;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
-.logo svg{width:38px;height:34px;flex:none}.logo span{letter-spacing:.01em}
-.flogo{display:flex;align-items:center;gap:10px;font:800 1.05rem Syne,sans-serif;color:#fff;margin-bottom:.5rem}.flogo svg{width:34px;height:30px}
-nav ul{list-style:none;display:flex;gap:1.2rem;flex-wrap:wrap}
-nav a.t{color:var(--mute);text-decoration:none;font-size:.9rem;font-weight:500;padding:.2rem 0;border-bottom:2px solid transparent}
-nav a.t.on{color:var(--ink);border-color:var(--gold)}
-.page{display:none}.page.on{display:block}
-.hero{background:linear-gradient(135deg,#0f3d22,var(--green));color:#fff;padding:clamp(3rem,10vw,6rem) 5vw}
-.hero small{color:var(--gold);font-weight:500;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem}
-@media (max-width:899px){.hero small{font-size:.72rem;letter-spacing:.08em}}
-.hero h1{font-size:clamp(2.25rem,4.2vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-.01em;margin:.6rem 0 1rem;max-width:16ch}
-.hero h1 em{font-style:normal;color:var(--gold)}
-.hero p{max-width:60ch;opacity:.9;margin-bottom:1.5rem;font-size:1.06rem;line-height:1.7}
-.btn{display:inline-block;background:var(--gold);color:#0D0D0D;font-weight:500;text-decoration:none;padding:.75rem 1.5rem;border-radius:4px}
-.sec{padding:clamp(2.5rem,6vw,4rem) 5vw;max-width:1100px;margin:0 auto}
-.sec h2{font-size:clamp(1.625rem,3.2vw,2.25rem);line-height:1.2;letter-spacing:-.01em;margin-bottom:.8rem}
-.lead{color:var(--mute);max-width:70ch;margin-bottom:1.5rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:1.3rem}
-.card h3{margin-bottom:.4rem}.card p{color:var(--mute);font-size:.95rem}
-.card b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pale);color:var(--green);font:700 .95rem Syne,sans-serif;margin-bottom:.7rem}
-.weeks{display:grid;gap:.7rem}.weeks .card{display:flex;gap:1rem;align-items:flex-start}.weeks .card b{margin:0;flex:none}
-ul.chk{list-style:none;display:grid;gap:.6rem}
-ul.chk li{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.8rem 1rem;border-left:3px solid var(--gold)}
-.band{background:var(--green);color:#fff;padding:2rem 5vw;text-align:center}
-.band h3{font-size:clamp(1.2rem,3vw,1.7rem)}.band p{opacity:.9}
-.hours{background:var(--pale);border-radius:6px;padding:1.3rem;margin-top:1.5rem}
-.hours li{list-style:none}
-footer{background:#0D0D0D;color:#cfd3cf;padding:2rem 5vw;font-size:.88rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-footer a{color:var(--gold);text-decoration:none;margin-right:1rem}
-.wa{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));background:#25D366;color:#073b1b;font-weight:500;text-decoration:none;padding:.6rem 1rem;border-radius:30px;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:12}
-/* Official Wiyo palette: #FF0000 main red, #C81927 secondary red, #F3E5E5 pale pink, #FFFFFF white */
-:root,:root:not([data-theme="light"]),:root[data-theme="dark"]{color-scheme:light;--ink:#1A1A1A;--bg:#FFFFFF;--surface:#FFFFFF;--pale:#F3E5E5;--mute:#555555;--line:#E9D3D3;--gold:#FF0000;--green:#C81927}
-a:focus-visible{outline:3px solid #C81927;outline-offset:2px}
-.hero{background:var(--pale);color:var(--ink);border-bottom:4px solid #FF0000}
-.hero small{color:#C81927}
-.hero h1 em{color:#C81927}
-.hero p{opacity:1;color:#333}
-.btn{background:#FF0000;color:#000;font-weight:600;transition:background .15s,color .15s}
-.btn:hover,.btn:focus-visible{background:#C81927;color:#fff}
-nav a.t:hover{color:#C81927}
-a.card{transition:border-color .15s}a.card:hover{border-color:#C81927}a.card:hover h3{color:#C81927}
-.card b{background:var(--pale);color:#C81927}
-.band{background:var(--pale);color:var(--ink);border-top:4px solid #FF0000}
-.band h3{color:#C81927}.band p{opacity:1}
-.hours{background:var(--pale)}
-footer{background:var(--pale);color:var(--ink);border-top:4px solid #FF0000}
-footer a{color:#C81927;font-weight:500}footer a:hover{text-decoration:underline}
-.flogo{color:var(--ink)}
-.wa{background:#FF0000;color:#000;font-weight:600;transition:background .15s,color .15s}.wa:hover{background:#C81927;color:#fff}
-.logo svg path:first-child,.flogo svg path:first-child{stroke:#C81927}
-.logo svg path:nth-child(2),.flogo svg path:nth-child(2){fill:#C81927}
-.logo svg circle,.flogo svg circle{stroke:#C81927}
-/* Home hero: white editorial layout, photo in one clean leaf shape (two matching circular corners) */
-.hero--home{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(2rem,4vw,3.5rem);align-items:center;background:#fff;color:var(--ink);padding-block:clamp(2.5rem,5.5vw,4rem)}
-.hero--home small{display:flex;align-items:center;gap:.7rem;font-weight:500;letter-spacing:.14em}
-.hero--home small::before{content:"";width:24px;height:2px;background:#FF0000;flex:none}
-.hero--home h1{font-size:clamp(2.25rem,4.2vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-.01em;max-width:none;margin:.8rem 0 1.2rem}
-.hero--home h1 em{display:block}
-.hero--home p{max-width:44ch;font-size:1.06rem;line-height:1.7;margin-bottom:1.8rem}
-.hero--home .btn{background:#FF0000;color:#fff;font-size:1.17rem;font-weight:700;padding:.8rem 1.7rem;border-radius:6px}
-.hero--home .btn:hover,.hero--home .btn:focus-visible{background:#C81927;color:#fff}
-.hero--home .btn:focus-visible{outline-offset:3px}
-.hero-visual{--leaf:19% 6px 19% 6px/38% 6px 38% 6px;position:relative;margin-bottom:12px}
-.hero-visual::before{content:"";position:absolute;inset:0;transform:translate(-12px,12px);background:#F3E5E5;border-radius:var(--leaf)}
-.hero-media{position:relative;margin:0;aspect-ratio:2/1;overflow:hidden;border-radius:var(--leaf);background:#F3E5E5}
-.hero-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(1.9)}
-#programs{scroll-margin-top:5rem}
-@media (max-width:899px){.hero--home{grid-template-columns:1fr;gap:1.75rem}.hero--home small{font-size:.72rem;letter-spacing:.08em}.hero--home p{max-width:52ch}.hero-visual{margin-bottom:10px}.hero-visual::before{transform:translate(-10px,10px)}#programs{scroll-margin-top:10rem}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Wiyo Venture Hub helps young entrepreneurs build businesses through incubation, practical skills, coworking and consulting.">
+  <title>Wiyo Venture Hub — Build. Launch. Thrive.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    /* Preserve the original homepage design from the previous version */
+    .hero--home{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(2rem,4vw,3.5rem);align-items:center;background:#fff;color:#1A1A1A;padding:clamp(2.5rem,5.5vw,4rem) 5vw;border-bottom:0}
+    .hero--home small{display:flex;align-items:center;gap:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#C81927}
+    .hero--home small::before{content:"";width:24px;height:2px;background:#FF0000;flex:none}
+    .hero--home h1{font-size:clamp(2.25rem,4.2vw,3.5rem);font-weight:700;line-height:1.08;letter-spacing:-.01em;max-width:none;margin:.8rem 0 1.2rem}
+    .hero--home h1 em{display:block;font-style:normal;color:#C81927}
+    .hero--home p{max-width:44ch;font-size:1.06rem;line-height:1.7;margin-bottom:1.8rem;color:#333;opacity:1}
+    .hero--home .btn{display:inline-block;background:#FF0000;color:#fff;font-size:1.05rem;font-weight:700;padding:.8rem 1.7rem;border-radius:6px;text-decoration:none}
+    .hero-visual{--leaf:19% 6px 19% 6px/38% 6px 38% 6px;position:relative;margin-bottom:12px}
+    .hero-visual::before{content:"";position:absolute;inset:0;transform:translate(-12px,12px);background:#F3E5E5;border-radius:var(--leaf)}
+    .hero-media{position:relative;margin:0;aspect-ratio:2/1;overflow:hidden;border-radius:var(--leaf);background:#F3E5E5}
+    .hero-media img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(1.9)}
+    .sec{padding:clamp(2.5rem,6vw,4rem) 5vw;max-width:1100px;margin:0 auto}
+    .sec h2{font-size:clamp(1.625rem,3.2vw,2.25rem);line-height:1.2;letter-spacing:-.01em;margin-bottom:.8rem}
+    .lead{color:#555;max-width:70ch;margin-bottom:1.5rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+    .card{background:#fff;border:1px solid #E9D3D3;border-radius:6px;padding:1.3rem}
+    .card h3{margin-bottom:.4rem}.card p{color:#555;font-size:.95rem}
+    .card b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#F3E5E5;color:#C81927;font-weight:700;margin-bottom:.7rem}
+    #programs{scroll-margin-top:5rem}
+    .register-extra-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+    @media(max-width:899px){.hero--home{grid-template-columns:1fr;gap:1.75rem}.hero--home small{font-size:.72rem;letter-spacing:.08em}.hero--home p{max-width:52ch}.hero-visual{margin-bottom:10px}.hero-visual::before{transform:translate(-10px,10px)}#programs{scroll-margin-top:10rem}}
+    @media(max-width:480px){.register-extra-row{grid-template-columns:1fr}}
+  </style>
+
+  <script src="js/script.js" defer></script>
 /* Registration dialog */
 .reg{margin:auto;border:0;border-radius:8px;padding:0;width:min(520px,calc(100% - 2rem));max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);overflow:auto;background:#fff;color:#0D0D0D;box-shadow:0 20px 60px rgba(0,0,0,.35)}
 .reg::backdrop{background:rgba(13,13,13,.6)}
@@ -182,15 +133,26 @@ footer a:not([href]):hover{text-decoration:none}
 </style>
 </head>
 <body>
-<nav>
-<a class="logo" href="#home" aria-label="Wiyo Venture Hub — home"><svg viewBox="0 0 40 36" aria-hidden="true"><path d="M4 11 L12 30 L20 17 L28 30 L33 15" fill="none" stroke="#D4122B" stroke-width="4.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 4 H37 V16 Z" fill="#D4122B"/><circle cx="20" cy="11" r="3.2" fill="none" stroke="#D4122B" stroke-width="2.4"/></svg><span>Wiyo Venture Hub</span></a>
-<ul>
-<li><a class="t" href="#home">Home</a></li><li><a class="t" href="#incubation">Incubation</a></li><li><a class="t" href="#youth">Youth skills</a></li><li><a class="t" href="#coworking">Coworking</a></li><li><a class="t" href="#consulting">Consulting</a></li><li><a class="t" href="#about">About us</a></li>
-</ul>
-</nav>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Wiyo Venture Hub home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 38"><path d="M3 10 12 31 21 17 29 29 35 12" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 3h14v14z" fill="currentColor"/><path d="M15 10c2-5 9-5 11 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span>
+      <span class="brand-name">wiyo<small>venture hub</small></span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
+    <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#incubation" class="nav-link">Incubation</a>
+      <a href="#youth" class="nav-link">Youth Skills</a>
+      <a href="#coworking" class="nav-link">Coworking</a>
+      <a href="#consulting" class="nav-link">Consulting</a>
+      <a href="#about" class="nav-link">About Us</a>
+    </nav>
+    <button class="button button-small" type="button" data-open-register="Founder Incubation Program">Register</button>
+  </header>
 
-<main>
-<section class="page" id="home">
+  <main>
+    <!-- HOME -->
+    <section class="page" id="home">
 <div class="hero hero--home"><div class="hero-text"><small>Douala · Littoral Region, Cameroon</small><h1>Build. Launch. <em>Thrive.</em></h1><p>We help young people turn their ideas into successful businesses through incubation, practical skills training, coworking spaces, and business consulting.</p><a class="btn" id="exploreBtn" href="#home">Explore our programs</a></div><div class="hero-visual"><figure class="hero-media"><img src="images/hero-wiyo-venture-hub.png" alt="Five young people laughing and walking together outdoors, carrying books and laptops" width="1754" height="863"></figure></div></div>
 <div class="sec"><h2>Our mission</h2><p class="lead">To systematically reduce irregular youth migration in the Littoral region of Cameroon by building an accessible, trust-backed entrepreneurship pipeline. We transform underemployed local youth into resilient, investable business founders by matching them with Cameroonian diaspora mentorship, micro-capital sandboxes and modern digital toolkits.</p>
 <h2>Our key value pillars</h2>
@@ -204,6 +166,50 @@ footer a:not([href]):hover{text-decoration:none}
 </div></div>
 </section>
 
+      <!-- INCUBATION -->
+    <section class="page" id="incubation">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">Founders Academy</p><h1>Founder <span>Incubation</span> Program</h1><p class="hero-description">A practical six-week programme for ambitious young entrepreneurs ready to test an idea, understand their customers and build a business with a strong foundation.</p><button class="button" type="button" data-open-register="Founder Incubation Program">Register now <span aria-hidden="true">→</span></button></div>
+        <figure class="hero-image"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1400&q=85" alt="Startup founders working together on a business idea" loading="lazy"><figcaption>From idea to a stronger business.</figcaption></figure>
+      </section>
+      <section class="section"><div class="section-heading"><p class="eyebrow">What you will gain</p><h2>Build the foundations <span>to grow.</span></h2><p class="section-lead">Practical guidance, accountability and connections that help move your idea forward.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card"><span class="feature-number">01</span><h3>Market validation</h3><p>Understand your customers, test assumptions and clarify the problem you solve.</p></article>
+          <article class="feature-card"><span class="feature-number">02</span><h3>Mentorship</h3><p>Learn through one-on-one conversations with local founders and diaspora professionals.</p></article>
+          <article class="feature-card"><span class="feature-number">03</span><h3>Business model</h3><p>Develop pricing, costs and a practical plan for making your venture sustainable.</p></article>
+          <article class="feature-card"><span class="feature-number">04</span><h3>Pitch readiness</h3><p>Build confidence presenting your idea, progress and needs to potential partners.</p></article>
+        </div></section>
+      <section class="section section-tint"><div class="section-heading"><p class="eyebrow">Six-week journey</p><h2>Learn it. Test it. <span>Improve it.</span></h2></div>
+        <div class="timeline">
+          <article><b>01</b><div><h3>Foundations & value proposition</h3><p>Define the problem, customer and value you want to create.</p></div></article>
+          <article><b>02</b><div><h3>Product & market fit</h3><p>Test early solutions and learn from customer feedback.</p></div></article>
+          <article><b>03</b><div><h3>Financial modelling</h3><p>Understand costs, pricing, cash flow and unit economics.</p></div></article>
+          <article><b>04</b><div><h3>Business operations</h3><p>Explore business registration, compliance and basic contracts.</p></div></article>
+          <article><b>05</b><div><h3>Branding & customer growth</h3><p>Plan how to reach customers, make sales and build trust.</p></div></article>
+          <article><b>06</b><div><h3>Pitch coaching</h3><p>Present your progress and prepare for conversations with partners.</p></div></article>
+        </div>
+        <div class="inline-photo"><img src="https://images.unsplash.com/photo-1559223607-a43c990c692c?auto=format&fit=crop&w=1200&q=80" alt="Entrepreneurs presenting and discussing ideas in a workshop" loading="lazy"><div><p class="eyebrow">Who should apply?</p><h3>Young people with a clear idea and the drive to test it.</h3><p>Designed for early-stage founders and aspiring entrepreneurs who can commit time to workshops, customer discovery and mentoring.</p><button class="button" type="button" data-open-register="Founder Incubation Program">Apply to the programme →</button></div></div>
+      </section>
+    </section>
+
+    <!-- YOUTH SKILLS -->
+    <section class="page" id="youth">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">Youth Skills Training</p><h1>Skills that get you <span>hired.</span></h1><p class="hero-description">Build practical, job-ready skills through project-based training designed for young people, graduates, aspiring freelancers and future entrepreneurs.</p><button class="button" type="button" data-open-register="Youth Skills Training">Explore training <span aria-hidden="true">→</span></button></div>
+        <figure class="hero-image"><img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1400&q=85" alt="Students working together during a practical training session" loading="lazy"><figcaption>Learn by doing.</figcaption></figure>
+      </section>
+      <section class="section"><div class="section-heading"><p class="eyebrow">Training pathways</p><h2>Skills for the <span>real world.</span></h2><p class="section-lead">Build a portfolio, practise with real projects and gain skills you can use at work or in your own business.</p></div>
+        <div class="program-grid program-grid-compact">
+          <article class="program-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80" alt="Digital marketing analytics on a laptop" loading="lazy"><div><span class="card-kicker">Track 01</span><h3>Digital marketing & e-commerce</h3><p>Learn content planning, digital campaigns and online customer growth.</p></div></article>
+          <article class="program-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Web developer working at a laptop" loading="lazy"><div><span class="card-kicker">Track 02</span><h3>Web development & no-code</h3><p>Build websites and simple digital products through guided projects.</p></div></article>
+          <article class="program-card"><img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=900&q=80" alt="Creative design work on a laptop" loading="lazy"><div><span class="card-kicker">Track 03</span><h3>Design & creative tools</h3><p>Explore visual communication, design workflows and AI-assisted tools.</p></div></article>
+          <article class="program-card"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80" alt="Financial planning with documents and calculator" loading="lazy"><div><span class="card-kicker">Track 04</span><h3>Accounting & startup finance</h3><p>Learn budgeting, bookkeeping basics and how to manage business finances.</p></div></article>
+        </div></section>
+      <section class="section section-tint"><div class="section-heading"><p class="eyebrow">Flexible learning</p><h2>Find a format that <span>works for you.</span></h2></div>
+        <div class="schedule-grid"><article class="schedule-card"><span class="schedule-icon">◷</span><h3>Weekday evenings</h3><p>Three sessions per week for students and working professionals.</p><strong>5:30 PM – 7:30 PM</strong></article><article class="schedule-card"><span class="schedule-icon">▦</span><h3>Weekend intensive</h3><p>Focused sessions for learners who prefer a weekend schedule.</p><strong>Saturdays · 9 AM – 3 PM</strong></article><article class="schedule-card"><span class="schedule-icon">⌘</span><h3>Hybrid access</h3><p>In-person practical sessions supported by digital learning resources.</p><strong>On-site + online materials</strong></article></div>
+        <div class="price-strip"><div><p class="eyebrow">Course fee</p><h3>30k <small>per course</small></h3><p>Four weeks · 20–30 instructional hours</p></div><button class="button" type="button" data-open-register="Youth Skills Training">Register for training →</button></div>
+      </section>
+    </section>
 <section class="page" id="incubation">
 <div class="hero"><small>Founders Academy</small><h1>Founder <em>Incubation</em> Program</h1><p>An intensive 6-week accelerator cohort engineered for ambitious young entrepreneurs (ages 18–35) in the Littoral Region of Cameroon.</p><a class="btn" href="#about" data-register="Founder Incubation Program" aria-haspopup="dialog">Register now</a></div>
 <div class="sec"><h2>Core programme pillars</h2>
@@ -587,126 +593,140 @@ var BOOKINGS=[
 ];
 /* ============================ END OF EDIT ZONE =========================== */
 
-/* Opening hours, in minutes from midnight, as written in "Standard operating hours" (Sunday: closed) */
-var HOURS={1:[480,1200],2:[480,1200],3:[480,1200],4:[480,1200],5:[480,1200],6:[540,1080]};
-var MAX_WEEKS=12;
+    <!-- COWORKING -->
+    <section class="page" id="coworking">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">Coworking Space · Akwa, Douala</p><h1>Power. Fiber. <span>Focus.</span></h1><p class="hero-description">A comfortable, professional workspace for freelancers, remote workers and growing teams — with reliable connectivity, room to collaborate and space to concentrate.</p><button class="button" type="button" data-open-booking>Book a workspace <span aria-hidden="true">→</span></button></div>
+        <figure class="hero-image"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=85" alt="Sunlit coworking office with shared desks and plants" loading="lazy"><figcaption>A place to do your best work.</figcaption></figure>
+      </section>
+      <section class="section"><div class="section-heading"><p class="eyebrow">Workspace options</p><h2>Make room for <span>your next idea.</span></h2><p class="section-lead">Choose the setup that fits your workday, from a flexible desk to a monthly membership.</p></div>
+        <div class="pricing-grid">
+          <article class="pricing-card"><span class="card-kicker">Plan 01</span><h3>Flexible Hot-Desking</h3><p>For focused work, a change of scenery or a productive meeting day.</p><ul><li>Shared desk access</li><li>High-speed Wi-Fi</li><li>Lounge access</li></ul><button class="text-button" type="button" data-open-booking>Ask about this plan →</button></article>
+          <article class="pricing-card pricing-card-featured"><span class="card-kicker">Plan 02</span><h3>Off-Peak Night Desk Pass</h3><p>For learners, freelancers and teams who work best later in the day.</p><h2 class="plan-price">30k</h2><ul><li>Night desk access</li><li>Reliable internet</li><li>Quiet working environment</li></ul><button class="text-button" type="button" data-open-booking>Ask about this plan →</button></article>
+          <article class="pricing-card"><span class="card-kicker">Plan 03</span><h3>Full Coworking Membership</h3><p>A dependable base for regular work and growing teams.</p><h2 class="plan-price">25k</h2><ul><li>Full-day access</li><li>Meeting-room options</li><li>Business-friendly environment</li></ul><button class="text-button" type="button" data-open-booking>Ask about this plan →</button></article>
+        </div>
+      </section>
+      <section class="section section-tint"><div class="inline-photo inline-photo-reverse"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Collaborative office meeting space with natural light" loading="lazy"><div><p class="eyebrow">Made for productivity</p><h2>More than a desk.</h2><p>Enjoy a welcoming work environment with useful amenities for independent professionals and teams. Confirm available facilities and membership options with our team.</p><div class="amenity-list"><span>High-speed Wi-Fi</span><span>Meeting areas</span><span>Comfortable desks</span><span>Printing support</span></div><button class="button" type="button" data-open-booking>Enquire about availability →</button></div></div></section>
+    </section>
 
-function pad(n){return (n<10?"0":"")+n}
-function iso(t){return t.getFullYear()+"-"+pad(t.getMonth()+1)+"-"+pad(t.getDate())}
-function parse(s){var p=s.split("-");return new Date(+p[0],+p[1]-1,+p[2],12,0,0)}
-function addDays(t,n){var r=new Date(t.getTime());r.setDate(r.getDate()+n);return r}
-function d(n){return iso(addDays(new Date(),n))}
-function monday(t){return addDays(t,-((t.getDay()+6)%7))}
-function mins(hhmm){var p=hhmm.split(":");return +p[0]*60+(+p[1])}
-function fmt(m){var h=Math.floor(m/60);return (h%12||12)+":"+pad(m%60)+" "+(h>=12?"PM":"AM")}
-function fmtH(m){var h=Math.floor(m/60);return (h%12||12)+" "+(h>=12?"PM":"AM")}
-function nice(t){return t.toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",year:"numeric"})}
-function short(t){return t.toLocaleDateString("en-GB",{day:"numeric",month:"short"})}
-function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
-function ranges(list){return list.map(function(r){return fmt(r[0])+" – "+fmt(r[1])}).join(", ")}
+    <!-- CONSULTING -->
+    <section class="page" id="consulting">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">Business Consulting</p><h1>Make your next move <span>count.</span></h1><p class="hero-description">Practical business guidance for founders and small businesses who want to strengthen their strategy, improve operations and prepare for sustainable growth.</p><a class="button" href="#advisory">Explore our support <span aria-hidden="true">→</span></a></div>
+        <figure class="hero-image"><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1400&q=85" alt="Business advisers discussing a project with a founder" loading="lazy"><figcaption>Clear thinking. Practical action.</figcaption></figure>
+      </section>
+      <section class="section" id="advisory"><div class="section-heading"><p class="eyebrow">Our expertise</p><h2>Advice built around <span>your business.</span></h2><p class="section-lead">Get help clarifying priorities and turning business challenges into a practical action plan.</p></div>
+        <div class="feature-grid">
+          <article class="feature-card"><span class="feature-number">01</span><h3>Business setup</h3><p>Understand the steps involved in structuring and formalising a business.</p></article>
+          <article class="feature-card"><span class="feature-number">02</span><h3>Financial planning</h3><p>Review budgets, pricing, cash flow and the financial story behind your idea.</p></article>
+          <article class="feature-card"><span class="feature-number">03</span><h3>Digital strategy</h3><p>Identify digital tools and marketing opportunities that fit your goals.</p></article>
+          <article class="feature-card"><span class="feature-number">04</span><h3>Partnerships & growth</h3><p>Strengthen your pitch, business relationships and plans for expansion.</p></article>
+        </div></section>
+      <section class="section section-tint"><div class="section-heading"><p class="eyebrow">How we work</p><h2>A clear path from challenge <span>to action.</span></h2></div>
+        <div class="process-grid"><article><b>01</b><h3>Discover</h3><p>Understand your goals, business and current challenges.</p></article><article><b>02</b><h3>Plan</h3><p>Agree on priorities and create a practical roadmap.</p></article><article><b>03</b><h3>Implement</h3><p>Work through the next steps with focused support.</p></article><article><b>04</b><h3>Review</h3><p>Track progress and adjust the plan as your business evolves.</p></article></div>
+        <div class="price-strip"><div><p class="eyebrow">Business support</p><h3>Let's discuss your needs.</h3><p>Scope and fees depend on the service and project.</p></div><a class="button" href="mailto:wiyoventurehub@gmail.com?subject=Business%20consulting%20enquiry">Contact our team →</a></div>
+      </section>
+    </section>
 
-/* busy / free hours of one space on one day */
-function dayInfo(space,day){
-  var h=HOURS[parse(day).getDay()];
-  if(!h)return null;
-  var o=h[0],c=h[1],busy=[];
-  BOOKINGS.forEach(function(b){
-    if(b.space!==space||day<b.from||day>b.to)return;
-    var s=Math.max(o,mins(b.start)),e=Math.min(c,mins(b.end));
-    if(e>s)busy.push([s,e]);
-  });
-  busy.sort(function(a,b){return a[0]-b[0]});
-  var merged=[];
-  busy.forEach(function(x){
-    var l=merged[merged.length-1];
-    if(l&&x[0]<=l[1])l[1]=Math.max(l[1],x[1]);else merged.push([x[0],x[1]]);
-  });
-  var free=[],cur=o;
-  merged.forEach(function(x){if(x[0]>cur)free.push([cur,x[0]]);cur=Math.max(cur,x[1])});
-  if(cur<c)free.push([cur,c]);
-  return {open:[o,c],busy:merged,free:free,status:!merged.length?"free":(!free.length?"full":"partly")};
-}
+    <!-- ABOUT -->
+    <section class="page" id="about">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">About Wiyo Venture Hub</p><h1>Ambition needs a <span>community.</span></h1><p class="hero-description">We are building an accessible entrepreneurship hub where young people can learn, test ideas, connect with mentors and develop businesses with a future.</p><a class="button" href="#our-story">Discover our story <span aria-hidden="true">→</span></a></div>
+        <figure class="hero-image"><img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1400&q=85" alt="A group of professionals gathered around a table for a collaborative discussion" loading="lazy"><figcaption>Growing together, moving forward.</figcaption></figure>
+      </section>
+      <section class="section" id="our-story"><div class="inline-photo"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" alt="A team sharing ideas during a collaborative workshop" loading="lazy"><div><p class="eyebrow">Our story</p><h2>Creating more pathways for young founders.</h2><p>Wiyo Venture Hub brings together practical learning, entrepreneurship support, coworking and access to experienced people. Our goal is to help aspiring founders move from ambition to action with a supportive community around them.</p><p>Through workshops, one-to-one mentoring and shared workspaces, we want to make it easier for promising ideas to become resilient businesses.</p></div></div></section>
+      <section class="section section-tint"><div class="section-heading"><p class="eyebrow">What guides us</p><h2>Our values in <span>action.</span></h2></div><div class="feature-grid"><article class="feature-card"><span class="feature-number">01</span><h3>Resilience & dignity</h3><p>We respect the potential of young people and support them with practical tools.</p></article><article class="feature-card"><span class="feature-number">02</span><h3>Accountability</h3><p>We value action, learning from evidence and measurable progress.</p></article><article class="feature-card"><span class="feature-number">03</span><h3>Community</h3><p>We believe people grow faster when knowledge and opportunity are shared.</p></article><article class="feature-card"><span class="feature-number">04</span><h3>Partnership</h3><p>We connect local ambition with experienced entrepreneurs and diaspora networks.</p></article></div></section>
+      <section class="cta-band"><div><p class="eyebrow">Be part of the journey</p><h2>Let's build opportunities together.</h2></div><button class="button button-light" type="button" data-open-register="Founder Incubation Program">Connect with Wiyo →</button></section>
+    </section>
+  </main>
 
-var now=new Date();
-var base=now.getDay()===0?addDays(now,1):now;   /* first selectable day: today, or Monday if today is Sunday */
-var baseISO=iso(base),firstWeek=monday(base),weekStart=firstWeek,selected=baseISO;
-var daysBox=document.getElementById("avDays"),panel=document.getElementById("avPanel"),
-    range=document.getElementById("avRange"),prev=document.getElementById("avPrev"),
-    next=document.getElementById("avNext"),todayBtn=document.getElementById("avToday");
+  <footer class="site-footer">
+    <a class="brand brand-footer" href="#home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 38"><path d="M3 10 12 31 21 17 29 29 35 12" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 3h14v14z" fill="currentColor"/><path d="M15 10c2-5 9-5 11 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span class="brand-name">wiyo<small>venture hub</small></span></a>
+    <p>Empowering partnerships. Driving growth.</p>
+    <div class="footer-links"><a href="#about">About us</a><a href="#incubation">Programs</a><a href="mailto:wiyoventurehub@gmail.com">Contact</a></div>
+    <small>© 2026 Wiyo Venture Hub. All rights reserved.</small>
+  </footer>
 
-function weekDays(){var a=[];for(var i=0;i<6;i++)a.push(addDays(weekStart,i));return a}
+  <a class="whatsapp-link" href="https://wa.me/23796409448?text=Hello%20Wiyo%20Venture%20Hub%2C%20I%20would%20like%20more%20information." target="_blank" rel="noopener noreferrer" aria-label="Contact Wiyo Venture Hub on WhatsApp">WhatsApp ↗</a>
 
-function buildDays(){
-  var days=weekDays();
-  if(!days.some(function(x){return iso(x)===selected&&selected>=baseISO}))
-    selected=iso(days.filter(function(x){return iso(x)>=baseISO})[0]);
-  range.textContent=short(days[0])+" – "+short(days[5])+" "+days[5].getFullYear();
-  prev.disabled=iso(weekStart)<=iso(firstWeek);
-  next.disabled=iso(weekStart)>=iso(addDays(firstWeek,7*MAX_WEEKS));
-  daysBox.textContent="";
-  days.forEach(function(x){
-    var day=iso(x),past=day<baseISO,b=el("button","av-day");
-    b.type="button";b.disabled=past;b.setAttribute("data-day",day);
-    var open=past?0:SPACES.filter(function(s){return dayInfo(s,day).status!=="full"}).length;
-    b.setAttribute("aria-label",nice(x)+(past?" (past)":", "+open+" of "+SPACES.length+" spaces with free hours"));
-    b.appendChild(el("span","av-wd",x.toLocaleDateString("en-GB",{weekday:"short"})));
-    b.appendChild(el("span","av-num",String(x.getDate())));
-    b.appendChild(el("span","av-sub",past?"":(open?open+" free":"Full")));
-    b.addEventListener("click",function(){selected=day;mark();drawPanel()});
-    daysBox.appendChild(b);
-  });
-  mark();drawPanel();
-}
-function mark(){
-  [].forEach.call(daysBox.children,function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-day")===selected))});
-}
+  <dialog class="modal" id="register-modal">
+    <form class="modal-form" id="register-form">
+      <div class="modal-heading"><div><p class="eyebrow">Take the next step</p><h2>Register your interest</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div>
+      <label for="register-program">Programme</label><select id="register-program" name="program"><option>Founder Incubation Program</option><option>Youth Skills Training</option></select>
+      <label for="register-name">Full name</label><input id="register-name" name="name" autocomplete="name" required maxlength="80">
+      <label for="register-email">Email address</label><input id="register-email" name="email" type="email" autocomplete="email" required>
+      <label for="register-phone">Phone / WhatsApp</label><input id="register-phone" name="phone" type="tel" autocomplete="tel" required>
+      <div class="register-extra-row">
+        <div><label for="register-age">Age</label><input id="register-age" name="age" type="number" min="18" max="35" required></div>
+        <div><label for="register-city">City</label><input id="register-city" name="city" autocomplete="address-level2" maxlength="60"></div>
+      </div>
+      <label for="register-message">Tell us briefly about your idea (optional)</label><textarea id="register-message" name="message" rows="3" maxlength="500"></textarea>
+      <button class="button modal-submit" type="submit">Register via WhatsApp →</button>
+      <button class="button modal-submit" id="register-email-submit" type="button">Register by e-mail</button>
+      <p class="form-note">Your message will open in WhatsApp. You must press Send to submit it.</p>
+    </form>
+  </dialog>
 
-function ticks(o,c){
-  var r=[],t=o;
-  for(;t<=c;t+=120)r.push(t);
-  if(c-r[r.length-1]>=90)r.push(c);
-  return r;
-}
+  <dialog class="modal" id="booking-modal">
+    <form class="modal-form" id="booking-form">
+      <div class="modal-heading"><div><p class="eyebrow">Coworking space</p><h2>Ask about a booking</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div>
+      <label for="booking-plan">Workspace plan</label><select id="booking-plan" name="plan"><option>Flexible Hot-Desking</option><option>Off-Peak Night Desk Pass — 30k</option><option>Full Coworking Membership — 25k</option></select>
+      <label for="booking-name">Full name</label><input id="booking-name" name="name" autocomplete="name" required>
+      <label for="booking-email">Email address</label><input id="booking-email" name="email" type="email" autocomplete="email" required>
+      <label for="booking-date">Preferred start date</label><input id="booking-date" name="date" type="date" required>
+      <label for="booking-message">Additional details (optional)</label><textarea id="booking-message" name="message" rows="3" maxlength="500"></textarea>
+      <button class="button modal-submit" type="submit">Continue on WhatsApp →</button>
+      <p class="form-note">This prepares a booking enquiry; it does not confirm availability.</p>
+    </form>
+  </dialog>
 
-function drawPanel(){
-  var t=parse(selected),h=HOURS[t.getDay()];
-  panel.textContent="";
-  panel.setAttribute("aria-label","Availability on "+nice(t));
-  var head=el("div","av-head");
-  head.appendChild(el("h3","",nice(t)));
-  head.appendChild(el("p","","Open "+fmt(h[0])+" – "+fmt(h[1])));
-  panel.appendChild(head);
-  SPACES.forEach(function(name){
-    var info=dayInfo(name,selected),row=el("div","av-row"),left=el("div"),mid=el("div"),act=el("div");
-    left.appendChild(el("div","av-name",name));
-    left.appendChild(el("span","av-chip"+(info.status==="free"?"":" av-chip--"+info.status),
-      info.status==="free"?"Available":(info.status==="partly"?"Partly booked":"Fully booked")));
-    var text=info.status==="free"?"Free: "+ranges(info.free)
-      :info.status==="full"?"Booked: "+ranges(info.busy)
-      :"Booked: "+ranges(info.busy)+" · Free: "+ranges(info.free);
-    var o=info.open[0],c=info.open[1],bar=el("div","av-bar");
-    bar.setAttribute("role","img");bar.setAttribute("aria-label",name+". "+text);
-    info.busy.forEach(function(x){
-      var seg=el("div","av-seg");
-      seg.style.left=((x[0]-o)/(c-o)*100)+"%";seg.style.width=((x[1]-x[0])/(c-o)*100)+"%";
-      bar.appendChild(seg);
-    });
-    var tk=el("div","av-ticks");tk.setAttribute("aria-hidden","true");
-    ticks(o,c).forEach(function(m){var s=el("span","",fmtH(m));s.style.left=((m-o)/(c-o)*100)+"%";tk.appendChild(s)});
-    mid.appendChild(bar);mid.appendChild(tk);mid.appendChild(el("p","av-times",text));
-    if(info.status!=="full"){
-      var b=el("button","av-reserve","Reserve");
-      b.type="button";b.setAttribute("aria-label","Reserve "+name+" on "+nice(t));
-      b.addEventListener("click",function(){
-        var ev=new CustomEvent("wiyo:book",{cancelable:true,detail:{date:selected,space:name,free:info.status==="partly"?ranges(info.free):""}});
-        if(document.dispatchEvent(ev))location.hash="#about"; /* booking form unavailable: same fallback as the other buttons */
+  <script>
+    (function () {
+      var emailButton = document.getElementById('register-email-submit');
+      var form = document.getElementById('register-form');
+      if (!emailButton || !form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        if (!form.reportValidity()) return;
+        var v = function (name) { var el = form.elements[name]; return el ? el.value.trim() : ''; };
+        var program = v('program'), name = v('name'), email = v('email'), phone = v('phone');
+        var age = v('age'), city = v('city'), message = v('message');
+        var lines = [
+          'Hello Wiyo Venture Hub, I would like to register.',
+          '',
+          'Program: ' + program,
+          'Name: ' + name,
+          'Phone / WhatsApp: ' + phone,
+          'E-mail: ' + email,
+          'Age: ' + age
+        ];
+        if (city) lines.push('City: ' + city);
+        if (message) lines.push('Project: ' + message);
+        window.open('https://wa.me/23796409448?text=' + encodeURIComponent(lines.join('\\n')), '_blank', 'noopener');
+      }, true);
+      emailButton.addEventListener('click', function () {
+        if (!form.reportValidity()) return;
+        var v = function (name) { var el = form.elements[name]; return el ? el.value.trim() : ''; };
+        var program = v('program'), name = v('name'), email = v('email'), phone = v('phone');
+        var age = v('age'), city = v('city'), message = v('message');
+        var body = [
+          'Hello Wiyo Venture Hub, I would like to register.',
+          '',
+          'Program: ' + program,
+          'Name: ' + name,
+          'Phone / WhatsApp: ' + phone,
+          'E-mail: ' + email,
+          'Age: ' + age
+        ];
+        if (city) body.push('City: ' + city);
+        if (message) body.push('Project: ' + message);
+        window.location.href = 'mailto:wiyoventurehub@gmail.com?subject=' +
+          encodeURIComponent('Registration - ' + program) + '&body=' +
+          encodeURIComponent(body.join('\\n'));
       });
-      act.appendChild(b);
-    }
-    row.appendChild(left);row.appendChild(mid);row.appendChild(act);
-    panel.appendChild(row);
-  });
-}
+    }());
+  </script>
 
 function shift(n){weekStart=addDays(weekStart,7*n);selected=iso(addDays(parse(selected),7*n));buildDays()}
 prev.addEventListener("click",function(){shift(-1)});
