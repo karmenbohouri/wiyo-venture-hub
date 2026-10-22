@@ -162,6 +162,23 @@ footer a:not([href]):hover{text-decoration:none}
 .av-swatch--busy{background:#C81927;border-color:#C81927}
 @media (max-width:700px){.av-row{grid-template-columns:1fr}.av-panel{padding:.9rem 1rem}}
 @media (max-width:520px){.av-ticks span:nth-child(even){display:none}.av-nav{flex-wrap:wrap}.av-range{order:-1;flex:1 0 100%}.av-today{flex:1}.av-days{gap:.35rem}}
+
+/* Booking steps */
+.bk-steps{color:#555;font-size:.9rem;font-weight:600;margin:0 0 .25rem}
+.reg .btn:disabled{opacity:.45;cursor:not-allowed}
+.bk-space{border:1px solid #ecdcdc;border-radius:8px;padding:.6rem .9rem .9rem;margin:.75rem 0;min-width:0}
+.bk-space legend{font-weight:600;padding:0 .3rem}
+.bk-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.5rem}
+.reg .bk-slot{position:relative;display:flex;flex-direction:column;gap:.1rem;margin:0;padding:.55rem .7rem;border:1px solid #d9c4c4;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:600;background:#fff}
+.reg .bk-slot span{font-size:.78rem;color:#C81927}
+.reg .bk-slot input{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;opacity:0;cursor:pointer}
+.reg .bk-slot:has(input:checked){background:#F3E5E5;border-color:#C81927;box-shadow:inset 0 0 0 1px #C81927}
+.reg .bk-slot:has(input:focus-visible){outline:2px solid #C81927;outline-offset:2px}
+.reg .bk-slot.busy{background:#F3E5E5;border-color:#ecdcdc;color:#555;cursor:not-allowed}
+.reg .bk-slot.busy span{color:#555}
+.reg .bk-slot.busy input{cursor:not-allowed}
+.bk-recap{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;margin:.75rem 0;font-size:.95rem}
+.bk-recap dt{font-weight:600}.bk-recap dd{margin:0;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -298,22 +315,35 @@ footer a:not([href]):hover{text-decoration:none}
 <dialog id="bookDialog" class="reg" aria-labelledby="bookTitle">
 <div class="reg-in">
 <div class="reg-head"><h2 id="bookTitle">Book your space</h2><button type="button" class="reg-x" id="bookClose" aria-label="Close booking form">&times;</button></div>
+<p class="bk-steps" id="bkSteps" aria-live="polite"></p>
 <form id="bookForm">
-<p class="reg-intro">Choose your plan and start date. Your details will open in WhatsApp or your e-mail app, ready to send to the Wiyo Venture Hub team.</p>
-<label for="bookPlan">Plan <span aria-hidden="true">*</span></label>
-<select id="bookPlan" name="plan" required autofocus><option value="" selected disabled>Choose a plan</option><option>Flexible Hot-Desking</option><option>Off-Peak Evening</option><option>Full Monthly Membership</option></select>
+<p class="reg-intro">Tell us about yourself and choose your plan and date. Next, you will see the spaces available that day.</p>
 <label for="bookName">Full name <span aria-hidden="true">*</span></label>
-<input id="bookName" name="fullname" type="text" autocomplete="name" required maxlength="80">
+<input id="bookName" name="fullname" type="text" autocomplete="name" required maxlength="80" autofocus>
 <label for="bookPhone">Phone / WhatsApp <span aria-hidden="true">*</span></label>
 <input id="bookPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+\s\-]{8,20}" title="Digits, spaces, + and - only (8 to 20 characters)">
 <label for="bookEmail">E-mail <span aria-hidden="true">*</span></label>
 <input id="bookEmail" name="email" type="email" autocomplete="email" required maxlength="120">
-<div class="reg-row reg-row--stack"><div><label for="bookStart">Start date <span aria-hidden="true">*</span></label><input id="bookStart" name="start" type="date" required></div>
-<div><label for="bookPeople">People <span aria-hidden="true">*</span></label><input id="bookPeople" name="people" type="number" inputmode="numeric" min="1" value="1" required></div></div>
+<label for="bookPlan">Plan <span aria-hidden="true">*</span></label>
+<select id="bookPlan" name="plan" required><option value="" selected disabled>Choose a plan</option><option>Flexible Hot-Desking</option><option>Off-Peak Evening</option><option>Full Monthly Membership</option></select>
+<div class="reg-row reg-row--stack"><div><label for="bookStart">Booking date <span aria-hidden="true">*</span></label><input id="bookStart" name="start" type="date" required></div>
+<div><label for="bookPeople">People</label><input id="bookPeople" name="people" type="number" inputmode="numeric" min="1" value="1"></div></div>
 <label for="bookNote">Anything we should know? (optional)</label>
 <textarea id="bookNote" name="note" maxlength="500"></textarea>
-<div class="reg-actions"><button type="submit" class="btn">Book via WhatsApp</button><button type="button" class="btn btn-alt" id="bookMail">Book by e-mail</button></div>
+<div class="reg-actions"><button type="submit" class="btn">Next</button></div>
 </form>
+<div id="bkSpaces" hidden>
+<h3 id="bkSpacesTitle" tabindex="-1">Available spaces</h3>
+<p class="reg-intro">Choose a space and a time slot. Illustrative example: the slots are simulated demo data.</p>
+<div id="bkList"></div>
+<div class="reg-actions"><button type="button" class="btn btn-alt" id="bkBack2">Back</button><button type="button" class="btn" id="bkNext2" disabled>Next</button></div>
+</div>
+<div id="bkRecap" hidden>
+<h3 id="bkRecapTitle" tabindex="-1">Review your request</h3>
+<dl class="bk-recap" id="bkDl"></dl>
+<p class="reg-intro">Your request is confirmed only once the Wiyo Venture Hub team replies.</p>
+<div class="reg-actions"><button type="button" class="btn" id="bkWa">Send via WhatsApp</button><button type="button" class="btn btn-alt" id="bkMail">Send by e-mail</button><button type="button" class="btn btn-alt" id="bkBack3">Back</button></div>
+</div>
 <div class="reg-done" id="bookDone" hidden>
 <h2 id="bookDoneTitle" tabindex="-1">Almost done</h2>
 <p id="bookDoneText"></p>
@@ -399,24 +429,84 @@ setup({
   },
   subject:function(d){return "Registration - "+d.program}
 });
-var openBook=setup({
-  dialog:"bookDialog",form:"bookForm",done:"bookDone",doneText:"bookDoneText",doneTitle:"bookDoneTitle",again:"bookAgain",
-  close:"bookClose",doneClose:"bookDoneClose",mail:"bookMail",trigger:"data-book",
-  fields:["plan","fullname","phone","email","start","people","note"],
-  onOpen:function(f,arg){
-    f.elements.start.min=todayISO();
-    if(arg&&typeof arg==="object"){ /* opened from the availability board: prefill date and space */
-      f.elements.start.value=arg.date;
-      f.elements.note.value="Space: "+arg.space+" - "+niceDate(arg.date)+(arg.free?" (free "+arg.free+")":"");
-    }
-  },
-  message:function(d){
-    var l=["Hello Wiyo Venture Hub, I would like to book a coworking space.","","Plan: "+d.plan,"Name: "+d.fullname,"Phone / WhatsApp: "+d.phone,"E-mail: "+d.email,"Start date: "+niceDate(d.start),"People: "+d.people];
-    if(d.note)l.push("Notes: "+d.note);
-    return l.join("\n");
-  },
-  subject:function(d){return "Coworking booking - "+d.plan}
-});
+/* Booking: 3 steps (details -> spaces and time slots -> review and send). Demo only: no server. */
+var PLANS={"Flexible Hot-Desking":{s:["Open-plan desk 1","Open-plan desk 2","Open-plan desk 3"]},"Off-Peak Evening":{s:["Open-plan desk 1","Open-plan desk 2","Open-plan desk 3"],w:[1080,1440]},"Full Monthly Membership":{}};
+var openBook=(function(){
+  var dlg=document.getElementById("bookDialog");
+  if(!dlg||typeof dlg.showModal!=="function")return;
+  function $(i){return document.getElementById(i)}
+  function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e}
+  function f(m){if(m===1440)return "Midnight";var h=Math.floor(m/60);return (h%12||12)+":"+("0"+m%60).slice(-2)+" "+(h>=12?"PM":"AM")}
+  var form=$("bookForm"),sp=$("bkSpaces"),list=$("bkList"),rc=$("bkRecap"),dl=$("bkDl"),done=$("bookDone"),steps=$("bkSteps"),next2=$("bkNext2"),
+      TITLES=["Your details","Choose a space and time","Review and send"],pref="",pick=null,data=null;
+  function go(n){
+    form.hidden=n!==1;sp.hidden=n!==2;rc.hidden=n!==3;done.hidden=n!==4;
+    steps.textContent=n<4?"Step "+n+" of 3 · "+TITLES[n-1]:"";
+    dlg.scrollTop=0;
+    var t=[null,null,$("bkSpacesTitle"),$("bkRecapTitle"),$("bookDoneTitle")][n];
+    if(t)t.focus();else form.elements.fullname.focus();
+  }
+  function open(arg){
+    form.reset();pick=null;data=null;pref=(arg&&arg.space)||"";
+    form.elements.start.min=todayISO();form.elements.start.setCustomValidity("");
+    if(arg&&arg.date)form.elements.start.value=arg.date;
+    dlg.showModal();go(1);
+  }
+  function drawSpaces(){
+    var A=window.WiyoAvail,P=PLANS[data.plan]||{},w=P.w||A.hours(data.start),names=(P.s||A.SPACES).slice(),now=new Date(),
+        n=data.start===todayISO()?now.getHours()*60+now.getMinutes():0;
+    if(pref&&names.indexOf(pref)>0){names.splice(names.indexOf(pref),1);names.unshift(pref)}
+    $("bkSpacesTitle").textContent="Available spaces on "+niceDate(data.start);
+    list.textContent="";
+    names.forEach(function(name){
+      var fs=el("fieldset","bk-space"),box=el("div","bk-slots"),busy=A.busy(name,data.start);
+      fs.appendChild(el("legend","",name));
+      for(var s=w[0];s<w[1];s+=120){
+        var e=Math.min(s+120,w[1]),taken=busy.some(function(x){return x[0]<e&&x[1]>s}),past=e<=n,off=taken||past,
+            lab=el("label","bk-slot"+(off?" busy":"")),inp=el("input");
+        inp.type="radio";inp.name="slot";inp.value=name+"|"+s+"|"+e;inp.disabled=off;
+        lab.appendChild(inp);lab.appendChild(document.createTextNode(f(s)+" – "+f(e)));
+        lab.appendChild(el("span","",taken?"Booked":(past?"Passed":"Available")));
+        box.appendChild(lab);
+      }
+      fs.appendChild(box);list.appendChild(fs);
+    });
+    next2.disabled=true;
+  }
+  function drawRecap(){
+    var rows=[["Name",data.fullname],["Phone / WhatsApp",data.phone],["E-mail",data.email],["Plan",data.plan],["People",data.people],["Space",pick.space],["Date",niceDate(data.start)],["Time",f(pick.s)+" – "+f(pick.e)]];
+    if(data.note)rows.push(["Notes",data.note]);
+    dl.textContent="";
+    rows.forEach(function(r){dl.appendChild(el("dt","",r[0]));dl.appendChild(el("dd","",r[1]))});
+  }
+  function send(ch){
+    var t=["Hello Wiyo Venture Hub, I would like to book a coworking space.","","Plan: "+data.plan,"Space: "+pick.space,"Date: "+niceDate(data.start),"Time: "+f(pick.s)+" – "+f(pick.e),"People: "+data.people,"Name: "+data.fullname,"Phone / WhatsApp: "+data.phone,"E-mail: "+data.email].concat(data.note?["Notes: "+data.note]:[]).join("\n"),url,again=$("bookAgain");
+    if(ch==="wa"){url="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(t);window.open(url,"_blank","noopener");again.target="_blank"}
+    else{url="mailto:"+REG_EMAIL+"?subject="+encodeURIComponent("Coworking booking - "+pick.space+" - "+data.start)+"&body="+encodeURIComponent(t.replace(/\n/g,"\r\n"));window.location.href=url;again.removeAttribute("target")}
+    $("bookDoneText").textContent=ch==="wa"?"Your message is ready in WhatsApp.":"Your message is ready in your e-mail app.";
+    again.textContent=ch==="wa"?"Open WhatsApp again":"Open e-mail again";again.href=url;
+    go(4);
+  }
+  form.elements.start.addEventListener("input",function(){this.setCustomValidity("")});
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var st=form.elements.start;
+    if(!window.WiyoAvail||!WiyoAvail.hours(st.value)){st.setCustomValidity("We are closed on Sundays. Please choose another date.");st.reportValidity();return}
+    data={};["plan","fullname","phone","email","start","people","note"].forEach(function(k){data[k]=form.elements[k].value.trim()});
+    data.people=data.people||"1";pick=null;drawSpaces();go(2);
+  });
+  list.addEventListener("change",function(e){var v=e.target.value.split("|");pick={space:v[0],s:+v[1],e:+v[2]};next2.disabled=false});
+  next2.addEventListener("click",function(){if(pick){drawRecap();go(3)}});
+  $("bkBack2").addEventListener("click",function(){go(1)});
+  $("bkBack3").addEventListener("click",function(){go(2)});
+  $("bkWa").addEventListener("click",function(){send("wa")});
+  $("bkMail").addEventListener("click",function(){send("mail")});
+  $("bookClose").addEventListener("click",function(){dlg.close()});
+  $("bookDoneClose").addEventListener("click",function(){dlg.close()});
+  dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+  document.querySelectorAll("[data-book]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();open()})});
+  return open;
+})();
 /* the availability board asks for a booking through this event */
 document.addEventListener("wiyo:book",function(e){if(openBook){e.preventDefault();openBook(e.detail)}});
 })();
@@ -491,7 +581,9 @@ var BOOKINGS=[
   {space:"Private booth 2",from:d(10),to:d(10),start:"15:00",end:"19:00"},
   {space:"Conference room",from:d(1),to:d(1),start:"09:00",end:"11:00"},
   {space:"Conference room",from:d(0),to:d(0),start:"14:00",end:"17:00"},
-  {space:"Conference room",from:d(7),to:d(7),start:"09:00",end:"18:00"}
+  {space:"Conference room",from:d(7),to:d(7),start:"09:00",end:"18:00"},
+  {space:"Open-plan desk 1",from:d(0),to:d(3),start:"20:00",end:"22:00"},
+  {space:"Open-plan desk 3",from:d(1),to:d(5),start:"18:00",end:"22:00"}
 ];
 /* ============================ END OF EDIT ZONE =========================== */
 
@@ -620,6 +712,9 @@ function shift(n){weekStart=addDays(weekStart,7*n);selected=iso(addDays(parse(se
 prev.addEventListener("click",function(){shift(-1)});
 next.addEventListener("click",function(){shift(1)});
 todayBtn.addEventListener("click",function(){weekStart=firstWeek;selected=baseISO;buildDays()});
+
+/* shared with the booking form */
+window.WiyoAvail={SPACES:SPACES,hours:function(day){return HOURS[parse(day).getDay()]||null},busy:function(space,day){return BOOKINGS.filter(function(b){return b.space===space&&day>=b.from&&day<=b.to}).map(function(b){return [mins(b.start),mins(b.end)]})}};
 buildDays();
 })();
 </script>
