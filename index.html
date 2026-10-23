@@ -35,20 +35,20 @@
     .register-extra-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
     @media(max-width:899px){.hero--home{grid-template-columns:1fr;gap:1.75rem}.hero--home small{font-size:.72rem;letter-spacing:.08em}.hero--home p{max-width:52ch}.hero-visual{margin-bottom:10px}.hero-visual::before{transform:translate(-10px,10px)}#programs{scroll-margin-top:10rem}}
     @media(max-width:480px){.register-extra-row{grid-template-columns:1fr}}
-    .footer-socials{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin:1.25rem 0 .5rem}
-    .footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;color:#bd7777;text-decoration:none;transition:color .2s,transform .2s}
+    .footer-socials{display:flex;align-items:center;justify-content:flex-end;gap:1rem;margin:0}
+    .footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;color:#C81927;text-decoration:none;transition:color .2s,transform .2s}
     .footer-socials a:hover{color:#C81927;transform:translateY(-2px)}
-    .footer-socials svg{width:27px;height:27px;display:block}
-    .whatsapp-link{font-size:0!important;width:68px;height:68px;display:flex!important;align-items:center;justify-content:center;border-radius:50%;background:#E85B45!important;color:#fff!important;box-shadow:0 8px 24px #0002}
-    .whatsapp-link::before{content:"";display:block;width:34px;height:34px;background:currentColor;mask:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22black%22 stroke-width=%221.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cpath d=%22M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 20l1.2-5.3A8.4 8.4 0 1 1 21 11.5Z%22/%3E%3Cpath d=%22M8.5 8.5c.5 2.5 2.5 4.5 5 5l1.2-1.2 2 1c-.2 1.2-1.1 2-2.3 2-3.7-.4-6.6-3.3-7-7-.1-1.2.8-2.1 2-2.3l1 2Z%22/%3E%3C/svg%3E') center/contain no-repeat;mask-size:contain}
+    .footer-socials svg{width:26px;height:26px;display:block}
 
     /* Footer background chosen from the reference: soft light coral, not black */
-    .site-footer{background:#FCE2DF!important;color:#8F3030!important;border-top:4px solid #E85B45!important;box-shadow:none!important}
-    .site-footer .brand,.site-footer .brand-name,.site-footer p,.site-footer small,.site-footer .footer-links a{color:#9E3F3F!important}
+    .site-footer{background:#FCE2DF!important;color:#171717!important;border-top:4px solid #E85B45!important;box-shadow:none!important}
+    .site-footer .brand,.site-footer .brand-name,.site-footer p,.site-footer small,.site-footer .footer-links a{color:#171717!important}
     .site-footer .brand-mark{color:#C81927!important}
-    .site-footer .footer-socials a{color:#BD7777!important}
+    .site-footer .footer-socials a{color:#C81927!important}
     .site-footer .footer-socials a:hover{color:#C81927!important}
     .site-footer .footer-links a:hover{color:#C81927!important}
+    @media(min-width:761px){.site-footer{grid-template-columns:auto 1fr auto}}
+    @media(max-width:760px){.site-footer .footer-socials{justify-content:flex-start}}
     @media(max-width:600px){.site-footer{padding:2rem 1.25rem!important}.site-footer .footer-socials{gap:1rem}}
   </style>
 
@@ -75,17 +75,22 @@
   <main>
     <!-- HOME -->
     <section class="page" id="home">
-<div class="hero hero--home"><div class="hero-text"><small>Douala · Littoral Region, Cameroon</small><h1>Build. Launch. <em>Thrive.</em></h1><p>We help young people turn their ideas into successful businesses through incubation, practical skills training, coworking spaces, and business consulting.</p><a class="btn" id="exploreBtn" href="#home">Explore our programs</a></div><div class="hero-visual"><figure class="hero-media"><img src="images/hero-wiyo-venture-hub.png" alt="Five young people laughing and walking together outdoors, carrying books and laptops" width="1754" height="863"></figure></div></div>
-<div class="sec"><h2>Our mission</h2><p class="lead">To systematically reduce irregular youth migration in the Littoral region of Cameroon by building an accessible, trust-backed entrepreneurship pipeline. We transform underemployed local youth into resilient, investable business founders by matching them with Cameroonian diaspora mentorship, micro-capital sandboxes and modern digital toolkits.</p>
-<h2>Our key value pillars</h2>
-<div class="grid"><div class="card"><b>1</b><h3>Incubations</h3></div><div class="card"><b>2</b><h3>Job-Ready Skills</h3></div><div class="card"><b>3</b><h3>Uninterrupted Power</h3></div><div class="card"><b>4</b><h3>Business Advisory</h3></div></div></div>
-<div class="sec" id="programs"><h2>Our programs</h2>
-<div class="grid">
-<a class="card" href="#incubation" style="text-decoration:none;color:inherit"><h3>Founders Academy</h3><p>Transforming Ambitious Ideas into Market-Ready Ventures</p></a>
-<a class="card" href="#coworking" style="text-decoration:none;color:inherit"><h3>Coworking Space</h3><p>Uninterrupted Productivity in the Heart of Douala (Akwa)</p></a>
-<a class="card" href="#youth" style="text-decoration:none;color:inherit"><h3>Youth Skills Training</h3><p>Practical, Job-Ready Digital &amp; Entrepreneurial Skills</p></a>
-<a class="card" href="#consulting" style="text-decoration:none;color:inherit"><h3>Business Consulting</h3><p>Strategic Advisory to Scale Your Business in Cameroon</p></a>
-</div></div>
+<div class="hero hero--home"><div class="hero-text"><small>Douala · Littoral Region, Cameroon</small><h1>Build. Launch. <em>Thrive.</em></h1><p>We help young people turn their ideas into successful businesses through incubation, practical skills training, coworking spaces, and business consulting.</p><a class="btn" id="exploreBtn" href="#programs">Explore our programs</a></div><div class="hero-visual"><figure class="hero-media"><img src="images/hero-wiyo-venture-hub.png" alt="Five young people laughing and walking together outdoors, carrying books and laptops" width="1754" height="863"></figure></div></div>
+<div class="sec"><h2>Our mission</h2><p class="lead">To systematically reduce irregular youth migration in the Littoral region of Cameroon by building an accessible, trust-backed entrepreneurship pipeline. We transform underemployed local youth into resilient, investable business founders by matching them with Cameroonian diaspora mentorship, micro-capital sandboxes and modern digital toolkits.</p></div>
+<section class="section"><div class="section-heading"><p class="eyebrow">What we stand for</p><h2>Our key value <span>pillars</span></h2></div>
+<div class="feature-grid">
+<article class="feature-card"><span class="feature-number">01</span><h3>Incubations</h3></article>
+<article class="feature-card"><span class="feature-number">02</span><h3>Job-Ready Skills</h3></article>
+<article class="feature-card"><span class="feature-number">03</span><h3>Uninterrupted Power</h3></article>
+<article class="feature-card"><span class="feature-number">04</span><h3>Business Advisory</h3></article>
+</div></section>
+<section class="section section-tint" id="programs"><div class="section-heading"><p class="eyebrow">What we offer</p><h2>Our <span>programs</span></h2></div>
+<div class="timeline">
+<article><b>01</b><div><h3><a href="#incubation">Founders Academy</a></h3><p>Transforming Ambitious Ideas into Market-Ready Ventures</p></div></article>
+<article><b>02</b><div><h3><a href="#coworking">Coworking Space</a></h3><p>Uninterrupted Productivity in the Heart of Douala (Akwa)</p></div></article>
+<article><b>03</b><div><h3><a href="#youth">Youth Skills Training</a></h3><p>Practical, Job-Ready Digital &amp; Entrepreneurial Skills</p></div></article>
+<article><b>04</b><div><h3><a href="#consulting">Business Consulting</a></h3><p>Strategic Advisory to Scale Your Business in Cameroon</p></div></article>
+</div></section>
 </section>
 
       <!-- INCUBATION -->
@@ -183,26 +188,25 @@
   <footer class="site-footer">
     <a class="brand brand-footer" href="#home"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 44 38"><path d="M3 10 12 31 21 17 29 29 35 12" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 3h14v14z" fill="currentColor"/><path d="M15 10c2-5 9-5 11 0" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></span><span class="brand-name">wiyo<small>venture hub</small></span></a>
     <p>Empowering partnerships. Driving growth.</p>
-    <div class="footer-links"><a href="#about">About us</a><a href="#incubation">Programs</a><a href="mailto:wiyoventurehub@gmail.com">Contact</a></div>
     <nav class="footer-socials" aria-label="Social media">
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v11.2a4.3 4.3 0 1 1-4-4.3"/><path d="M14 3c.5 3.2 2.4 5.1 6 5.5"/></svg></a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 9.5V20"/><path d="M4.5 4.5v.01"/><path d="M10.5 20V9.5"/><path d="M10.5 14.25a4.75 4.75 0 0 1 9.5 0V20"/></svg></a>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7.917v4.034a9.948 9.948 0 0 1 -5 -1.951v4.5a6.5 6.5 0 1 1 -8 -6.326v4.326a2.5 2.5 0 1 0 4 2v-11.5h4.083a6.005 6.005 0 0 0 4.917 4.917"/></svg></a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10"/><path d="M8.5 12a3.5 3.5 0 1 0 7 0a3.5 3.5 0 0 0 -7 0"/><path d="M17 7v.01"/></svg></a>
     </nav>
     <small>© 2026 Wiyo Venture Hub. All rights reserved.</small>
   </footer>
 
-  <a class="whatsapp-link" href="https://wa.me/23796409448?text=Hello%20Wiyo%20Venture%20Hub%2C%20I%20would%20like%20more%20information." target="_blank" rel="noopener noreferrer" aria-label="Contact Wiyo Venture Hub on WhatsApp">WhatsApp ↗</a>
+  <a class="wa" href="https://wa.me/23796409448?text=Hello%20Wiyo%20Venture%20Hub%2C%20I%20would%20like%20more%20information." target="_blank" rel="noopener" title="WhatsApp - drag to move" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9"/><path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1"/></svg></a>
 
   <dialog class="modal" id="register-modal">
     <form class="modal-form" id="register-form">
       <div class="modal-heading"><div><p class="eyebrow">Take the next step</p><h2>Register your interest</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div>
       <label for="register-program">Programme</label><select id="register-program" name="program"><option>Founder Incubation Program</option><option>Youth Skills Training</option></select>
-      <label for="register-name">Full name</label><input id="register-name" name="name" autocomplete="name" required maxlength="80">
-      <label for="register-email">Email address</label><input id="register-email" name="email" type="email" autocomplete="email" required>
-      <label for="register-phone">Phone / WhatsApp</label><input id="register-phone" name="phone" type="tel" autocomplete="tel" required>
+      <label for="register-name">Full name <span aria-hidden="true">*</span></label><input id="register-name" name="name" autocomplete="name" required maxlength="80">
+      <label for="register-email">Email address <span aria-hidden="true">*</span></label><input id="register-email" name="email" type="email" autocomplete="email" required>
+      <label for="register-phone">Phone / WhatsApp <span aria-hidden="true">*</span></label><input id="register-phone" name="phone" type="tel" autocomplete="tel" required>
       <div class="register-extra-row">
-        <div><label for="register-age">Age</label><input id="register-age" name="age" type="number" min="18" max="35" required></div>
+        <div><label for="register-age">Age <span aria-hidden="true">*</span></label><input id="register-age" name="age" type="number" min="18" max="35" required></div>
         <div><label for="register-city">City</label><input id="register-city" name="city" autocomplete="address-level2" maxlength="60"></div>
       </div>
       <label for="register-message">Tell us briefly about your idea (optional)</label><textarea id="register-message" name="message" rows="3" maxlength="500"></textarea>
@@ -212,141 +216,45 @@
     </form>
   </dialog>
 
-  <dialog class="modal" id="booking-modal">
-    <form class="modal-form" id="booking-form">
-      <div class="modal-heading"><div><p class="eyebrow">Coworking space</p><h2>Book your space</h2></div><button class="modal-close" type="button" data-close-modal aria-label="Close">×</button></div>
-      <p class="form-note">Choose your plan and start date. Your details will open in WhatsApp or your e-mail app, ready to send to the Wiyo Venture Hub team.</p>
-      <label for="booking-plan">Plan <span aria-hidden="true">*</span></label>
-      <select id="booking-plan" name="plan" required autofocus>
-        <option value="" selected disabled>Choose a plan</option>
-        <option>Flexible Hot-Desking</option>
-        <option>Off-Peak Night Desk Pass — 30k</option>
-        <option>Full Coworking Membership — 25k</option>
-      </select>
-      <label for="booking-name">Full name <span aria-hidden="true">*</span></label>
-      <input id="booking-name" name="fullname" type="text" autocomplete="name" required maxlength="80">
-      <label for="booking-phone">Phone / WhatsApp <span aria-hidden="true">*</span></label>
-      <input id="booking-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+\s\-]{8,20}" title="Digits, spaces, + and - only (8 to 20 characters)">
-      <label for="booking-email">E-mail <span aria-hidden="true">*</span></label>
-      <input id="booking-email" name="email" type="email" autocomplete="email" required maxlength="120">
-      <div class="register-extra-row">
-        <div><label for="booking-date">Start date <span aria-hidden="true">*</span></label><input id="booking-date" name="start" type="date" required></div>
-        <div><label for="booking-people">People <span aria-hidden="true">*</span></label><input id="booking-people" name="people" type="number" inputmode="numeric" min="1" value="1" required></div>
-      </div>
-      <label for="booking-message">Anything we should know? (optional)</label>
-      <textarea id="booking-message" name="note" rows="3" maxlength="500"></textarea>
-      <button class="button modal-submit" type="submit">Book via WhatsApp →</button>
-      <button class="button modal-submit" id="booking-email-submit" type="button">Book by e-mail →</button>
-      <p class="form-note">Your booking request is not confirmed until the team confirms availability.</p>
-    </form>
-  </dialog>
-
-  <script>
-    (function () {
-      var emailButton = document.getElementById('register-email-submit');
-      var form = document.getElementById('register-form');
-      if (!emailButton || !form) return;
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        if (!form.reportValidity()) return;
-        var v = function (name) { var el = form.elements[name]; return el ? el.value.trim() : ''; };
-        var program = v('program'), name = v('name'), email = v('email'), phone = v('phone');
-        var age = v('age'), city = v('city'), message = v('message');
-        var lines = [
-          'Hello Wiyo Venture Hub, I would like more information.',
-          'Hello Wiyo Venture Hub, I would like to register.',
-          'Hello Wiyo Venture Hub, I would like to register.',
-          '',
-          'Program: ' + program,
-          'Name: ' + name,
-          'Phone / WhatsApp: ' + phone,
-          'E-mail: ' + email,
-          'Age: ' + age
-        ];
-        if (city) lines.push('City: ' + city);
-        if (message) lines.push('Project: ' + message);
-        window.open('https://wa.me/23796409448?text=' + encodeURIComponent(lines.join('\\n')), '_blank', 'noopener');
-      }, true);
-      emailButton.addEventListener('click', function () {
-        if (!form.reportValidity()) return;
-        var v = function (name) { var el = form.elements[name]; return el ? el.value.trim() : ''; };
-        var program = v('program'), name = v('name'), email = v('email'), phone = v('phone');
-        var age = v('age'), city = v('city'), message = v('message');
-        var body = [
-          'Hello Wiyo Venture Hub, I would like more information.',
-          'Hello Wiyo Venture Hub, I would like to register.',
-          'Hello Wiyo Venture Hub, I would like to register.',
-          '',
-          'Program: ' + program,
-          'Name: ' + name,
-          'Phone / WhatsApp: ' + phone,
-          'E-mail: ' + email,
-          'Age: ' + age
-        ];
-        if (city) body.push('City: ' + city);
-        if (message) body.push('Project: ' + message);
-        window.location.href = 'mailto:wiyoventurehub@gmail.com?subject=' +
-          encodeURIComponent('Registration - ' + program) + '&body=' +
-          encodeURIComponent(body.join('\\n'));
-      });
-    }());
-  </script>
-
-
-  <script>
-    (function () {
-      var modal = document.getElementById('booking-modal');
-      var form = document.getElementById('booking-form');
-      var emailButton = document.getElementById('booking-email-submit');
-      if (!modal || !form) return;
-
-      document.querySelectorAll('[data-open-booking]').forEach(function (button) {
-        button.addEventListener('click', function () {
-          var card = button.closest('.pricing-card');
-          var heading = card && card.querySelector('h3');
-          var plan = form.elements.plan;
-          if (heading) {
-            var label = heading.textContent.trim();
-            for (var i = 0; i < plan.options.length; i++) {
-              if (plan.options[i].text.indexOf(label) !== -1 || label.indexOf(plan.options[i].text.split(' — ')[0]) !== -1) {
-                plan.selectedIndex = i;
-                break;
-              }
-            }
-          }
-          if (typeof modal.showModal === 'function') modal.showModal();
-          else modal.setAttribute('open', '');
-        });
-      });
-      modal.querySelectorAll('[data-close-modal]').forEach(function (button) {
-        button.addEventListener('click', function () { modal.close(); });
-      });
-      modal.addEventListener('click', function (event) {
-        if (event.target === modal) modal.close();
-      });
-
-      function values() {
-        var get = function (name) { return String(form.elements[name].value || '').trim(); };
-        return { plan: get('plan'), fullname: get('fullname'), phone: get('phone'), email: get('email'), start: get('start'), people: get('people'), note: get('note') };
-      }
-      function message(d) {
-        var lines = ['Hello Wiyo Venture Hub, I would like to book a coworking space.', '', 'Plan: ' + d.plan, 'Name: ' + d.fullname, 'Phone / WhatsApp: ' + d.phone, 'E-mail: ' + d.email, 'Start date: ' + d.start, 'People: ' + d.people];
-        if (d.note) lines.push('Additional details: ' + d.note);
-        return lines.join('\n');
-      }
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        if (!form.reportValidity()) return;
-        var d = values();
-        window.open('https://wa.me/23796409448?text=' + encodeURIComponent(message(d)), '_blank', 'noopener');
-      });
-      emailButton.addEventListener('click', function () {
-        if (!form.reportValidity()) return;
-        var d = values();
-        window.location.href = 'mailto:wiyoventurehub@gmail.com?subject=' + encodeURIComponent('Coworking booking - ' + d.plan) + '&body=' + encodeURIComponent(message(d));
-      });
-    }());
-  </script>
+  <dialog id="bookDialog" class="reg" aria-labelledby="bookTitle">
+<div class="reg-in">
+<div class="reg-head"><h2 id="bookTitle">Book your space</h2><button type="button" class="reg-x" id="bookClose" aria-label="Close booking form">&times;</button></div>
+<p class="bk-steps" id="bkSteps" aria-live="polite"></p>
+<form id="bookForm">
+<p class="reg-intro">Tell us about yourself and choose your plan and date. Next, you will see the spaces available that day.</p>
+<label for="bookName">Full name <span aria-hidden="true">*</span></label>
+<input id="bookName" name="fullname" type="text" autocomplete="name" required maxlength="80" autofocus>
+<label for="bookPhone">Phone / WhatsApp <span aria-hidden="true">*</span></label>
+<input id="bookPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+\s\-]{8,20}" title="Digits, spaces, + and - only (8 to 20 characters)">
+<label for="bookEmail">E-mail <span aria-hidden="true">*</span></label>
+<input id="bookEmail" name="email" type="email" autocomplete="email" required maxlength="120">
+<label for="bookPlan">Plan <span aria-hidden="true">*</span></label>
+<select id="bookPlan" name="plan" required><option value="" selected disabled>Choose a plan</option><option>Flexible Hot-Desking</option><option>Off-Peak Night Desk Pass — 30k</option><option>Full Coworking Membership — 25k</option></select>
+<div class="reg-row reg-row--stack"><div><label for="bookStart">Booking date <span aria-hidden="true">*</span></label><input id="bookStart" name="start" type="date" required></div>
+<div><label for="bookPeople">People</label><input id="bookPeople" name="people" type="number" inputmode="numeric" min="1" value="1"></div></div>
+<label for="bookNote">Anything we should know? (optional)</label>
+<textarea id="bookNote" name="note" maxlength="500"></textarea>
+<div class="reg-actions"><button type="submit" class="btn">Next</button></div>
+</form>
+<div id="bkSpaces" hidden>
+<h3 id="bkSpacesTitle" tabindex="-1">Available spaces</h3>
+<p class="reg-intro">Choose a space and a time slot. Illustrative example: the slots are simulated demo data.</p>
+<div id="bkList"></div>
+<div class="reg-actions"><button type="button" class="btn btn-alt" id="bkBack2">Back</button><button type="button" class="btn" id="bkNext2" disabled>Next</button></div>
+</div>
+<div id="bkRecap" hidden>
+<h3 id="bkRecapTitle" tabindex="-1">Review your request</h3>
+<dl class="bk-recap" id="bkDl"></dl>
+<p class="reg-intro">Your request is confirmed only once the Wiyo Venture Hub team replies.</p>
+<div class="reg-actions"><button type="button" class="btn" id="bkWa">Send via WhatsApp</button><button type="button" class="btn btn-alt" id="bkMail">Send by e-mail</button><button type="button" class="btn btn-alt" id="bkBack3">Back</button></div>
+</div>
+<div class="reg-done" id="bookDone" hidden>
+<h2 id="bookDoneTitle" tabindex="-1">Almost done</h2>
+<p id="bookDoneText"></p>
+<p>Your booking request is sent once you press Send in that app.</p>
+<div class="reg-actions"><a class="btn" id="bookAgain" target="_blank" rel="noopener" href="#">Open again</a><button type="button" class="btn btn-alt" id="bookDoneClose">Close</button></div>
+</div>
+</div>
+</dialog>
 </body>
 </html>

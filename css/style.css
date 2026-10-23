@@ -140,9 +140,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .footer-links a { color: #e8e8e8; text-decoration: none; font-size: .85rem; }
 .footer-links a:hover { color: #ffb7bd; }
 .site-footer > small { grid-column: 1 / -1; border-top: 1px solid #444; padding-top: 18px; color: #bdbdbd; }
-.whatsapp-link { position: fixed; right: 22px; bottom: 22px; z-index: 40; background: #171717; color: #fff; padding: 12px 18px; border-radius: 28px; text-decoration: none; font-size: .83rem; font-weight: 700; box-shadow: 0 7px 24px #0002; }
-.whatsapp-link:hover { background: var(--red-dark); }
-.modal { width: min(540px, calc(100% - 28px)); max-height: 90vh; overflow: auto; margin: auto; border: 0; border-radius: 14px; padding: 0; box-shadow: 0 25px 80px #0004; color: var(--ink); }
+.modal { width: min(540px, calc(100% - 28px)); max-height: 90vh; overflow: auto; margin: auto; border: 0; border-radius: 14px; padding: 0; box-shadow: 0 25px 80px #0004; background: #fff; color: var(--ink); color-scheme: light; }
 .modal::backdrop { background: #111a; backdrop-filter: blur(3px); }
 .modal-form { padding: 30px; display: flex; flex-direction: column; }
 .modal-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 15px; margin-bottom: 15px; }
@@ -152,6 +150,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .modal-form label { margin: 13px 0 6px; color: #353535; font-size: .87rem; font-weight: 700; }
 .modal-form input, .modal-form select, .modal-form textarea { width: 100%; border: 1px solid #dcd3d3; border-radius: 6px; padding: 11px 12px; background: #fff; color: #171717; }
 .modal-form textarea { resize: vertical; }
+.modal-form label span { color: #C81927; }
 .modal-submit { margin-top: 20px; width: 100%; }
 .form-note { font-size: .78rem; margin-top: 12px; }
 @media (max-width: 1050px) {
@@ -193,7 +192,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   .price-strip { align-items: flex-start; flex-direction: column; padding: 24px; }
   .site-footer { grid-template-columns: 1fr; gap: 15px; padding: 32px 5vw; }
   .site-footer > small { grid-column: auto; }
-  .whatsapp-link { right: 14px; bottom: 14px; }
 }
 @media (max-width: 480px) {
   .brand-name { font-size: 1.08rem; }
@@ -211,3 +209,60 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* Booking dialog and WhatsApp button, as on the previous version of the site */
+.reg{margin:auto;border:0;border-radius:8px;padding:0;width:min(520px,calc(100% - 2rem));max-height:calc(100vh - 2rem);max-height:calc(100dvh - 2rem);overflow:auto;background:#fff;color:#0D0D0D;color-scheme:light;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.reg::backdrop{background:rgba(13,13,13,.6)}
+html:has(dialog.reg[open]){overflow:hidden}
+.reg-in{padding:1.5rem}
+.reg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:.5rem}
+.reg h2{font-size:1.5rem;line-height:1.2;letter-spacing:-.01em;margin:0}
+.reg-x{background:none;border:0;border-radius:4px;color:#0D0D0D;cursor:pointer;font-size:1.75rem;line-height:1;padding:.2rem .55rem}
+.reg-x:hover{background:#F3E5E5}
+.reg-x:focus-visible,.reg .btn:focus-visible{outline:2px solid #C81927;outline-offset:2px}
+.reg-intro{color:#555;font-size:.95rem;margin:0 0 .5rem}
+.reg label{display:block;font-size:.9rem;font-weight:500;margin:.9rem 0 .3rem}
+.reg label span{color:#C81927}
+.reg input,.reg select,.reg textarea{width:100%;font-family:inherit;font-size:1rem;line-height:1.4;padding:.65rem .75rem;border:1px solid #d9c4c4;border-radius:4px;background:#fff;color:#0D0D0D}
+.reg input:focus,.reg select:focus,.reg textarea:focus{outline:2px solid #C81927;outline-offset:1px;border-color:#C81927}
+.reg input:user-invalid,.reg select:user-invalid{border-color:#C81927}
+.reg textarea{min-height:5rem;resize:vertical}
+.reg-row{display:grid;grid-template-columns:1fr 1fr;gap:0 1rem}
+.reg-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.25rem}
+.reg .btn{display:inline-block;background:#FF0000;color:#000;text-decoration:none;padding:.75rem 1.5rem;border-radius:4px;border:0;cursor:pointer;font-family:inherit;font-size:1rem;font-weight:600;line-height:1.2;text-align:center;transition:background .15s,color .15s}
+.reg .btn:hover,.reg .btn:focus-visible{background:#C81927;color:#fff}
+.reg .btn-alt{background:#fff;color:#C81927;box-shadow:inset 0 0 0 2px #C81927}
+.reg .btn-alt:hover,.reg .btn-alt:focus-visible{background:#C81927;color:#fff}
+.reg .btn:disabled{opacity:.45;cursor:not-allowed}
+.reg-done p{margin:.4rem 0 0}
+@media (max-width:480px){.reg-in{padding:1.25rem}.reg-actions .btn{flex:1 1 100%}.reg-row--stack{grid-template-columns:1fr}}
+.bk-steps{color:#555;font-size:.9rem;font-weight:600;margin:0 0 .25rem}
+.bk-space{border:1px solid #ecdcdc;border-radius:8px;padding:.6rem .9rem .9rem;margin:.75rem 0;min-width:0}
+.bk-space legend{font-weight:600;padding:0 .3rem}
+.bk-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:.5rem}
+.reg .bk-slot{position:relative;display:flex;flex-direction:column;gap:.1rem;margin:0;padding:.55rem .7rem;border:1px solid #d9c4c4;border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:600;background:#fff}
+.reg .bk-slot span{font-size:.78rem;color:#C81927}
+.reg .bk-slot input{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;opacity:0;cursor:pointer}
+.reg .bk-slot:has(input:checked){background:#F3E5E5;border-color:#C81927;box-shadow:inset 0 0 0 1px #C81927}
+.reg .bk-slot:has(input:focus-visible){outline:2px solid #C81927;outline-offset:2px}
+.reg .bk-slot.busy{background:#F3E5E5;border-color:#ecdcdc;color:#555;cursor:not-allowed}
+.reg .bk-slot.busy span{color:#555}
+.reg .bk-slot.busy input{cursor:not-allowed}
+.bk-recap{display:grid;grid-template-columns:auto 1fr;gap:.35rem 1rem;margin:.75rem 0;font-size:.95rem}
+.bk-recap dt{font-weight:600}.bk-recap dd{margin:0;overflow-wrap:anywhere}
+.wa{position:fixed;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;justify-content:center;width:56px;height:56px;padding:0;border-radius:50%;background:#FF0000;color:#fff;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:background .15s;touch-action:none;-webkit-user-select:none;user-select:none;cursor:grab}
+.wa:hover{background:#C81927}
+.wa.dragging{cursor:grabbing;transition:none}
+.wa svg{width:30px;height:30px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+
+/* In-page targets stay clear of the sticky header */
+#programs, #advisory, #our-story { scroll-margin-top: 96px; }
+
+/* Home "Our programs": same layout as the six-week timeline, each card links to its page */
+.timeline article { position: relative; }
+.timeline h3 a { color: inherit; text-decoration: none; }
+.timeline h3 a::after { content: ""; position: absolute; inset: 0; border-radius: 9px; }
+.timeline article:hover h3 a { color: var(--red-dark); }
+.timeline article:has(a:focus-visible) { outline: 3px solid #ef6b74; outline-offset: 2px; }
+.timeline h3 a:focus-visible { outline: none; }
+
